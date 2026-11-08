@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{charter}
 \usepackage{microtype,booktabs,graphicx,xcolor,enumitem,caption,tabularx,amsmath}
+\usepackage{placeins}
 \usepackage[hidelinks]{hyperref}
 \usepackage[numbers,sort&compress]{natbib}
 \definecolor{ink}{HTML}{1d1d1f}\definecolor{red}{HTML}{c8102e}\definecolor{muted}{HTML}{6b6b70}
@@ -11,7 +12,7 @@
 \setlength{\parskip}{3pt}
 \newcommand{\cond}[1]{\texttt{\small #1}}
 
-\title{\textbf{Unmentioned Folder:}\\ Do parallel AI agents find a shared folder nobody told them about,\\ and copy the answers they find there?}
+\title{\textbf{Unmentioned Folder}\\[4pt] \Large How little does it take for parallel AI agents\\ to start a message board?}
 \author{Saharsh Tibrewala\\ \small Independent researcher \\ \small Swarm Alignment Hackathon 2026 (Apart Research $\times$ AI Alignment Foundation)}
 \date{}
 
@@ -19,11 +20,13 @@
 \maketitle
 \vspace{-1.5em}
 
+\input{numbers}
 \input{sections/abstract}
 \input{sections/intro}
 \input{sections/method}
 \input{sections/results}
 \input{sections/discussion}
+\FloatBarrier
 
 \bibliographystyle{unsrtnat}
 \bibliography{refs}

@@ -196,6 +196,8 @@ async def run_agent(*, rid: str, model: str, world: World, questions: list[dict]
             text, calls, u, reason = await convo.step()
         usage["input"] += u["input"]
         usage["output"] += u["output"]
+        if os.environ.get("FOLDERLAB_VERBOSE"):
+            print(f"[{rid} w{wave} t{turn}] {[c['name'] for c in calls]}", file=sys.stderr, flush=True)
         if text:
             events.append({"t": time.time() - t0, "turn": turn, "kind": "say", "text": text[:2000]})
         if not calls:

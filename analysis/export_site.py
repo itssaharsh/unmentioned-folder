@@ -49,6 +49,15 @@ def main():
     (SITE / "summary.json").write_text(json.dumps(summ, indent=1))
     if len(sys.argv) > 1:
         (SITE / "replay.json").write_text(json.dumps(replay(Path(sys.argv[1])), indent=1))
+    # accuracy by wave per model x condition (the relay effect)
+    import pandas as pd
+    df = pd.read_csv(ROOT / "results" / "agents.csv")
+    waves = []
+    for (m, c), g in df.groupby(["model", "condition"]):
+        waves.append({"model": m, "condition": c, "n_episodes": int(g.episode.nunique()),
+                      "by_wave": [{"wave": int(w) + 1, "n": int(len(gw)), "accuracy": round(float(gw.accuracy.mean()), 4)}
+                                  for w, gw in g.groupby("wave")]})
+    (SITE / "waves.json").write_text(json.dumps(waves, indent=1))
     rd = ROOT / "results" / "realdata.json"
     if rd.exists():
         (SITE / "realdata.json").write_text(rd.read_text())

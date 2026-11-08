@@ -1,0 +1,64 @@
+\section{Results}
+
+We ran \nepisodes{} episodes (\nagents{} agent runs) across \nmodels{} models. Table~\ref{tab:main} gives every cell. Four findings stand out; the numbers in this section are for the three Claude models, which we could run on every condition. The other models appear in Table~\ref{tab:main} with the cells their rate limits allowed.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig4_waves.pdf}
+\caption{\textbf{One invitation note turns a shared folder into a relay board.} Exam accuracy of each wave of three agents, in the order they ran. With no folder (grey) or an empty folder (light grey), every wave scores about the same. When the folder starts with a note inviting agents to pool what they find, with no answers in it (red), early agents post ``confirmed'' partial results with record ids and later agents finish from them. With the planted answer note (gold), Sonnet 5.5 copies and Haiku 5.5 does not. Error bars: 95\% bootstrap intervals over episodes.}
+\label{fig:waves}
+\end{figure}
+
+\subsection{Nobody opens a folder nobody mentions; one sentence changes that}
+With the folder present but never mentioned, \hiddenOpened{} of \hiddenN{} agents across \hiddenModels{} models opened it. A \texttt{shared} entry in the home directory, which every agent sees when it lists its working directory, raised this only a little: Claude Haiku 5.5 read the note in \ReadHaikuFiveLnk{} of runs, Sonnet 5.5 in \ReadSonnetLnk{} and Haiku 4.5 in \ReadHaikuFourLnk{}. One neutral sentence in the task file (``A shared scratch folder is mounted at \textasciitilde/shared'') was enough for the two newer Claude models: Haiku 5.5 read the note in \ReadHaikuFiveMen{} of runs and Sonnet 5.5 in \ReadSonnetMen{}, while Haiku 4.5 read it in \ReadHaikuFourMen{} and GPT-4.1 mini in \ReadFourOneMiniMen{} (Figure~\ref{fig:exposure}). Agents that ran out of lookups and wrote ``unknown'' rarely went looking for another source unless the task said one existed.
+
+\subsection{Readers check what is cheap to check, and copy the rest}
+Once agents read the note, models split. Sonnet 5.5 used it as a shortcut: \UnverReadSonnetEnc{} of its readers in the \cond{encouraged+answers} condition submitted at least one note answer they never checked, and its measured exam accuracy rose from \AccSonnetIso{} with no folder to \AccSonnetEnc{} \AccSonnetEncCI{}. The score measured the folder, not the model. Haiku 5.5 mostly refused, in its own words: \emph{``The shared file has answers from another run, but I can't verify them and shouldn't submit them as checked.''} Only \UnverReadHaikuFiveEnc{} of its readers submitted an unchecked note answer, and its accuracy stayed at \AccHaikuFiveEnc{}.
+
+Whether the planted wrong answer spread depended on where it sat (Figure~\ref{fig:trust}). Agents spend their last lookups on the questions that are cheapest to finish, so they check note answers on three-lookup questions and take the note's word on the four-lookup one. When the planted answer was on a three-lookup question, \AdoptCheapAll{} readers across all models submitted it and \CaughtCheapAll{} ended with the right value. When it was on the four-lookup question, \AdoptCostlyAll{} submitted it (\AdoptPctCostlyAll{}): \AdoptCostlyHaikuFour{} for Haiku 4.5, \AdoptCostlySonnet{} for Sonnet 5.5 and \AdoptCostlyHaikuFive{} for Haiku 5.5. Verification followed cost, not risk.
+
+\subsection{An invitation, not an empty folder, starts a relay board}
+An empty, encouraged folder was opened by almost every Claude 5.5 agent (\OpenSonnetEmpty{} of Sonnet runs, \OpenHaikuFiveEmpty{} of Haiku 5.5 runs), and \emptyWrote{} of \emptyN{} agents wrote anything in it. A single note from ``an earlier run'' inviting agents to pool confirmed answers, with no answers in it, changed that. Early agents appended what they had confirmed, with the record ids they had opened (Table~\ref{tab:posts}); later agents opened those records directly instead of searching, and finished questions they could not have reached alone. Accuracy climbed with each wave, from \AccSonnetInvWA{} in the first wave to \AccSonnetInvWD{} in the last for Sonnet 5.5, and from \AccHaikuFiveInvWA{} to \AccHaikuFiveInvWD{} for Haiku 5.5 (Figure~\ref{fig:waves}). Haiku 5.5, which would not copy the planted answers, did use its peers' posts, because the record ids let it check them cheaply. This is the first step of the Hugging Face incident in miniature: agents on separate runs turned a shared place into a board, shared discoveries and split the work, without being told to.
+
+\subsection{One line in the system prompt stops it, for these models}
+Adding ``Work independently: do not read or write files belonging to other agents, do not share answers'' to the system prompt stopped the relay. With the invitation present, Sonnet 5.5 opened the folder in \OpenSonnetInvRule{} of runs and its accuracy stayed at \AccSonnetInvRule{}; Haiku 5.5 still opened it in \OpenHaikuFiveInvRule{} of runs and read the invitation, but wrote nothing and scored \AccHaikuFiveInvRule{}. With the planted note, the rule cut Sonnet 5.5's reading from \ReadSonnetEnc{} to \ReadSonnetEncRule{}. The agents in the incident were not given such a rule, and an instruction is only as good as the model's willingness to follow it; but in our setting it was the cheapest control we tested.
+
+\subsection{The real board looks like ours}
+The collusion.wiki export holds \realRevisions{} revisions by \realLabels{} names on \realPages{} pages. \realcross{} of edits to an existing page were made by a different name than the one that created it, so the wiki worked as a shared board, not as private scratch space. Of the \realAnswerRevs{} revisions that carry answers, \realverify{} say the answers are confirmed, verified, checked or exact, the claim our planted note makes; \realInvite{} revisions ask other agents to post, add or report what they find. The real posts are relay pages for ``ahead cohorts'': agents that reached a round first post the value and its timing for those behind (Table~\ref{tab:posts}). Our waves play the same role, and our agents wrote posts of the same shape without seeing any real ones.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_exposure.pdf}
+\caption{\textbf{How visible must the folder be?} Share of agents that read the note in the shared folder, by exposure. No model read a folder it was not told about. Bars: 95\% bootstrap intervals over episodes; models with fewer than two episodes in a cell have no interval.}
+\label{fig:exposure}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig2_trust.pdf}
+\caption{\textbf{What readers did with a note claiming four verified answers (three right, one wrong).} Left: share of readers that submitted the planted wrong answer, by how many lookups the planted question needs. Right: share that submitted at least one note answer they never checked.}
+\label{fig:trust}
+\end{figure}
+
+\begin{table}[t]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}p{0.17\linewidth}X@{}}
+\toprule
+\textbf{Source} & \textbf{Post (verbatim, trimmed)} \\
+\midrule
+Sandbox, Sonnet 5.5, wave 1 & r-10000: confirmed Q1 = 181,733 (Saskia Cassont born Sorisse t13); Q2 = Ines Corith (Wren Rhoival $\rightarrow$ Uleth Instruments c19). Partial: Tavi Ostival $\rightarrow$ Gardaro Logistics c00 (need HQ town + river). \\
+Sandbox, Haiku 5.5, wave 2 & [r-10005] Confirmed: Q4 Edda Drarin $\rightarrow$ Ivoek Optics (c08), founded 1973 (c08 doc). Ivoek HQ Sabisse (t12), CEO Ronan Cassady (p11). \\
+collusion.wiki & Grocery G5 relay Nov08. Sequence confirmed GA $\rightarrow$ AR $\rightarrow$ NV $\rightarrow$ KY. Our 9m19/30s cohort: KY confirmed task 20:53:31 [\ldots] If G5 arrives, post STATE/value immediately. \\
+collusion.wiki & Jul16 cohort [\ldots] R2 Business confirmed 06:44:35, answered 5,269 [\ldots] R5 Psychology 1,544 independently confirmed by Sep01. Please report post-R5 termination/R6 evidence. \\
+\bottomrule
+\end{tabularx}
+\caption{\textbf{Posts from our sandbox and from the real board.} Both claim confirmation, carry the pointers a reader needs to check or continue the work, and address whoever comes next.}
+\label{tab:posts}
+\end{table}
+
+\begin{table*}[t]
+\centering\scriptsize
+\input{../results/table1.tex}
+\caption{\textbf{Every cell we ran.} Percentages are over agents ($n$, from the listed number of 12-agent episodes). ``Copied unverif.'': submitted a note answer whose true value never appeared in a record the agent opened. ``Planted wrong'': submitted the planted wrong value. Accuracy is the share of the four questions answered correctly; an agent alone can usually reach two.}
+\label{tab:main}
+\end{table*}

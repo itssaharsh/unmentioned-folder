@@ -29,7 +29,8 @@ SHORT = {"claude-haiku-4-5": "Claude Haiku 4.5", "claude-haiku-5-5": "Claude Hai
          "openai/gpt-5-nano": "GPT-5 nano", "openai/gpt-4.1-mini": "GPT-4.1 mini",
          "google/gemini-2.5-flash-lite": "Gemini 2.5 Flash-Lite", "openai/gpt-oss-20b": "gpt-oss-20b", "deepseek-ai/DeepSeek-V4-Pro": "DeepSeek V4 Pro"}
 MAIN_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "openai/gpt-5-nano", "google/gemini-2.5-flash-lite"]
-MODEL_COLORS = {"openai/gpt-oss-120b": BLUE, "openai/gpt-oss-20b": "#8fb3e0", "openai/gpt-5-nano": GOLD, "google/gemini-2.5-flash-lite": GREEN,
+MODEL_COLORS = {"claude-haiku-4-5": "#e9b3a8", "claude-haiku-5-5": "#d4664f", "claude-sonnet-5-5": "#8c2d1c",
+                "deepseek-ai/DeepSeek-V4-Pro": "#3a3a8c", "openai/gpt-oss-120b": BLUE, "openai/gpt-oss-20b": "#8fb3e0", "openai/gpt-5-nano": GOLD, "google/gemini-2.5-flash-lite": GREEN,
                 "openai/gpt-4.1-mini": "#7a4fa0"}
 
 
@@ -72,28 +73,68 @@ def grouped(ax, df, conds, col, models, labels, ylabel, title):
 def main():
     FIG.mkdir(parents=True, exist_ok=True)
     df = pd.read_csv(RES / "agents.csv")
-    models = [m for m in MAIN_MODELS + ["openai/gpt-4.1-mini"] if m in set(df.model)]
+    models = [m for m in SHORT if m in set(df.model)]
 
-    # Figure 1: the exposure ladder (did the agent open the folder at all?)
-    fig, ax = plt.subplots(figsize=(6.6, 2.5))
-    conds = ["hidden+answers", "linked+answers", "mentioned+answers"]
-    grouped(ax, df, conds, "read_note", models,
-            ["hidden\n(/mnt/shared only)", "linked\n(shared/ in home dir)", "mentioned\n(one line in task file)"],
-            "agents who read the note", "How visible must the folder be before agents read it?")
-    ax.legend(frameon=False, fontsize=7.5, ncol=len(models), loc="upper left")
+    # Figure 1: the exposure ladder (did the agent read the note at all?)
+    conds = ["hidden+answers", "linked+answers", "mentioned+answers", "encouraged+answers"]
+    fmodels = [m for m in models if df[(df.model == m) & df.condition.isin(conds)].condition.nunique() >= 2]
+    fig, ax = plt.subplots(figsize=(6.6, 2.7))
+    grouped(ax, df, conds, "read_note", fmodels,
+            ["hidden\n(not pointed to)", "linked\n(shared/ in home)", "mentioned\n(one line in task)",
+             "encouraged\n('use any files')"], "agents who read the note", "")
+    ax.legend(frameon=False, fontsize=7, ncol=min(4, len(fmodels)), loc="upper center", bbox_to_anchor=(0.5, -0.28))
     fig.tight_layout()
-    fig.savefig(FIG / "fig1_exposure.pdf")
-    fig.savefig(FIG / "fig1_exposure.png")
+    fig.savefig(FIG / "fig1_exposure.pdf", bbox_inches="tight")
+    fig.savefig(FIG / "fig1_exposure.png", bbox_inches="tight")
     plt.close(fig)
 
-    # Figure 2: what readers did with the note (no rule vs rule), mentioned exposure
-    readers = df[df.read_note & df.condition.isin(["mentioned+answers", "mentioned+answers+rule", "linked+answers"])]
-    fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.5), sharey=True)
-    for ax, col, title in [(axes[0], "copied_unverified_any", "Submitted a note answer they never checked"),
-                           (axes[1], "adopted_wrong", "Submitted the planted wrong answer")]:
-        grouped(ax, readers, ["mentioned+answers", "mentioned+answers+rule"], col, models,
-                ["no rule", "'work independently'"], "share of note readers", title)
-    axes[0].legend(frameon=False, fontsize=7, loc="upper right")
+    # Figure 2: what readers did with the note: planted-answer adoption by cost, and unchecked copying
+    import gzip as _gz
+    cost = {}
+    for ep in df.episode.unique():
+        e = json.load(_gz.open(ROOT / "runs" / ep, "rt"))
+        if e.get("planted"):
+            cost[ep] = next(q["cost"] for q in e["questions"] if q["id"] == e["planted"]["qid"])
+    df["planted_cost"] = df.episode.map(cost)
+    readers = df[df.read_note & df.planted_cost.notna()]
+    rmodels = [m for m in SHORT if m in set(readers.model) and len(readers[readers.model == m]) >= 5]
+    fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.6))
+    ax = axes[0]
+    w = 0.38
+    for j, (c, label, color) in enumerate([(3, "planted on a 3-lookup question", MUTED), (4, "planted on the 4-lookup question", RED)]):
+        xs, ys, ns = [], [], []
+        for i, m in enumerate(rmodels):
+            r = readers[(readers.model == m) & (readers.planted_cost == c)]
+            if len(r):
+                xs.append(i + (j - 0.5) * w)
+                ys.append(r.adopted_wrong.mean())
+                ns.append(f"{int(r.adopted_wrong.sum())}/{len(r)}")
+        bars = ax.bar(xs, ys, w * 0.92, color=color, label=label)
+        for x, y, n in zip(xs, ys, ns):
+            ax.text(x, y + 0.02, n, ha="center", va="bottom", fontsize=6.5, color=INK)
+    ax.set_xticks(range(len(rmodels)))
+    ax.set_xticklabels([SHORT[m].replace("Claude ", "") for m in rmodels], fontsize=7.5)
+    ax.set_ylim(0, 1.12)
+    ax.set_ylabel("share of note readers")
+    ax.set_title("(a) Submitted the planted wrong answer", loc="left", fontsize=8.5, fontweight="bold")
+    ax.legend(frameon=False, fontsize=6.5, loc="upper right")
+    ax = axes[1]
+    conds = ["mentioned+answers", "encouraged+answers"]
+    xs, ys, ns = [], [], []
+    for i, m in enumerate(rmodels):
+        r = readers[(readers.model == m) & readers.condition.isin(conds)]
+        if len(r):
+            xs.append(i)
+            ys.append(r.copied_unverified_any.mean())
+            ns.append(f"{int(r.copied_unverified_any.sum())}/{len(r)}")
+    ax.bar(xs, ys, 0.6, color=[MODEL_COLORS.get(m, GOLD) if m in MODEL_COLORS else GOLD for m in rmodels[:len(xs)]])
+    for x, y, n in zip(xs, ys, ns):
+        ax.text(x, y + 0.02, n, ha="center", va="bottom", fontsize=6.5)
+    ax.set_xticks(range(len(rmodels)))
+    ax.set_xticklabels([SHORT[m].replace("Claude ", "") for m in rmodels], fontsize=7.5)
+    ax.set_ylim(0, 1.12)
+    ax.set_ylabel("share of note readers")
+    ax.set_title("(b) Submitted an answer never checked", loc="left", fontsize=8.5, fontweight="bold")
     fig.tight_layout()
     fig.savefig(FIG / "fig2_trust.pdf")
     fig.savefig(FIG / "fig2_trust.png")
@@ -124,11 +165,9 @@ def main():
         last = r[0]
     tex += ["\\bottomrule", "\\end{tabular}"]
     (RES / "table1.tex").write_text("\n".join(tex))
+    waves(df, [m for m in ["claude-sonnet-5-5", "claude-haiku-5-5"] if m in set(df.model)])
     print("figures and table written")
 
-
-if __name__ == "__main__":
-    main()
 
 
 def timeline(path: str, out: str = "fig3_timeline"):
@@ -213,3 +252,7 @@ def waves(df: pd.DataFrame, models: list[str], out: str = "fig4_waves"):
     fig.savefig(FIG / f"{out}.pdf", bbox_inches="tight")
     fig.savefig(FIG / f"{out}.png", bbox_inches="tight")
     plt.close(fig)
+
+
+if __name__ == "__main__":
+    main()
