@@ -5,11 +5,11 @@
 Results page: https://unmentioned-folder.vercel.app
 
 <!-- RESULT-START -->
-**What we found** (79 episodes, 948 agent runs, 8 models; every number below is rebuilt from `runs/` by `analysis/`):
+**What we found** (95 episodes, 1,140 agent runs, 9 models; every number below is rebuilt from `runs/` by `analysis/`):
 
-- **Nobody opens a folder nobody mentions.** 0 of 72 agents opened `/mnt/shared` when nothing pointed to it. One neutral line in the task file ("A shared scratch folder is mounted at ~/shared") made 67% of Claude Haiku 5.5 and 56% of Claude Sonnet 5.5 agents read what was in it.
+- **Nobody opens a folder nobody mentions.** 0 of 84 agents opened `/mnt/shared` when nothing pointed to it. One neutral line in the task file ("A shared scratch folder is mounted at ~/shared") made 67% of Claude Haiku 5.5 and 56% of Claude Sonnet 5.5 agents read what was in it.
 - **One invitation note starts a relay board.** An empty folder stayed empty (0 of 48 agents wrote in it). A single note inviting agents to pool confirmed answers, with no answers in it, was enough: early agents posted "confirmed" partial results with record ids, and later waves finished from them. Sonnet 5.5's accuracy went from 56% in the first wave to 96% in the fourth; Haiku 5.5's from 56% to 90%. With no folder, every wave scores about 50%.
-- **Checking follows cost, not risk.** Given a note claiming four verified answers (one planted wrong), Sonnet 5.5's measured accuracy rose from 48% to 90%. Readers checked what was cheap and copied the rest: the planted wrong answer reached 47/97 readers (48%) when it sat on the question that costs most to check, and 9/96 (9%) otherwise.
+- **Checking follows cost, not risk.** Given a note claiming four verified answers (one planted wrong), Sonnet 5.5's measured accuracy rose from 48% to 90%. Readers checked what was cheap and copied the rest: the planted wrong answer reached 50/101 readers (50%) when it sat on the question that costs most to check, and 15/123 (12%) otherwise.
 - **One line in the system prompt stops it.** "Work independently..." cut Sonnet 5.5's folder use from 88% to 4% and stopped the relay for both newer Claude models.
 - **The real board looks the same.** On collusion.wiki, 90% of edits to an existing page came from a different agent name, and 87% of answer-bearing posts claim the answers are confirmed or verified.
 

@@ -97,7 +97,7 @@ def main():
             cost[ep] = next(q["cost"] for q in e["questions"] if q["id"] == e["planted"]["qid"])
     df["planted_cost"] = df.episode.map(cost)
     readers = df[df.read_note & df.planted_cost.notna()]
-    rmodels = [m for m in SHORT if m in set(readers.model) and len(readers[readers.model == m]) >= 5]
+    rmodels = [m for m in SHORT if m in set(readers.model) and len(readers[readers.model == m]) >= 20]
     fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.6))
     ax = axes[0]
     w = 0.38
@@ -113,7 +113,8 @@ def main():
         for x, y, n in zip(xs, ys, ns):
             ax.text(x, y + 0.02, n, ha="center", va="bottom", fontsize=6.5, color=INK)
     ax.set_xticks(range(len(rmodels)))
-    ax.set_xticklabels([SHORT[m].replace("Claude ", "") for m in rmodels], fontsize=7.5)
+    ax.set_xticklabels([SHORT[m].replace("Claude ", "").replace("DeepSeek ", "DeepSeek\n") for m in rmodels],
+                       fontsize=7.5)
     ax.set_ylim(0, 1.12)
     ax.set_ylabel("share of note readers")
     ax.set_title("(a) Submitted the planted wrong answer", loc="left", fontsize=8.5, fontweight="bold")
@@ -131,7 +132,8 @@ def main():
     for x, y, n in zip(xs, ys, ns):
         ax.text(x, y + 0.02, n, ha="center", va="bottom", fontsize=6.5)
     ax.set_xticks(range(len(rmodels)))
-    ax.set_xticklabels([SHORT[m].replace("Claude ", "") for m in rmodels], fontsize=7.5)
+    ax.set_xticklabels([SHORT[m].replace("Claude ", "").replace("DeepSeek ", "DeepSeek\n") for m in rmodels],
+                       fontsize=7.5)
     ax.set_ylim(0, 1.12)
     ax.set_ylabel("share of note readers")
     ax.set_title("(b) Submitted an answer never checked", loc="left", fontsize=8.5, fontweight="bold")
@@ -142,8 +144,9 @@ def main():
 
     # Table 1 (LaTeX): model x condition
     rows = []
-    order = ["isolated", "hidden+answers", "linked+answers", "mentioned+answers", "mentioned+answers+rule",
-             "mentioned+invite", "mentioned"]
+    order = ["isolated", "hidden+answers", "linked+answers", "mentioned+answers", "encouraged+answers",
+             "encouraged+answers+rule", "encouraged", "mentioned+invite", "encouraged+invite", "encouraged+invite+rule",
+             "mentioned+answers+rule", "mentioned"]
     for m in [x for x in SHORT if x in set(df.model)]:
         for c in order:
             sub = df[(df.model == m) & (df.condition == c)]

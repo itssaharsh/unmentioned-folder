@@ -98,6 +98,29 @@ def main():
                              "caught": int(rc.caught_planted.sum())})
     (RES / "adoption_by_cost.json").write_text(json.dumps(rows, indent=1))
 
+    mech = RES / "mechanism.json"
+    if mech.exists():
+        mj = json.loads(mech.read_text())
+        claude = ["claude-haiku-4-5", "claude-haiku-5-5", "claude-sonnet-5-5"]
+        for m, d in mj["checked_by_cost"].items():
+            if m in KEYS:
+                for cost, tag in (("3", "Cheap"), ("4", "Costly")):
+                    if cost in d and d[cost]["of"]:
+                        define(f"Checked{tag}{KEYS[m]}", f"{d[cost]['checked']}/{d[cost]['of']}")
+                        define(f"CheckedPct{tag}{KEYS[m]}", pct(d[cost]["checked"] / d[cost]["of"]))
+        for cost, tag in (("3", "Cheap"), ("4", "Costly")):
+            c = sum(mj["checked_by_cost"][m][cost]["checked"] for m in claude if m in mj["checked_by_cost"])
+            n_ = sum(mj["checked_by_cost"][m][cost]["of"] for m in claude if m in mj["checked_by_cost"])
+            define(f"CheckedPct{tag}Claude", pct(c / n_))
+            define(f"Checked{tag}Claude", f"{c}/{n_}")
+        for key, v in mj["relay_answer_source_waves_2_4"].items():
+            m, c = key.split("|")
+            if m in KEYS and c in ("encouraged+invite", "isolated"):
+                tot = v["self_checked"] + v["unchecked"]
+                tag = "Inv" if c == "encouraged+invite" else "Iso"
+                define(f"Unchecked{tag}{KEYS[m]}", f"{v['unchecked']}/{tot}")
+                define(f"UncheckedPct{tag}{KEYS[m]}", pct(v["unchecked"] / tot) if tot else "0\\%")
+
     st = json.loads((RES / "realdata_structure.json").read_text())
     define("realRevisions", f"{st['revisions']:,}")
     define("realLabels", f"{st['labels']:,}")

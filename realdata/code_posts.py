@@ -27,8 +27,8 @@ from folderlab.agent import Conversation, client  # noqa: F401  (reuses provider
 ROOT = Path(__file__).resolve().parent
 RAW = ROOT / "raw"
 CATS = ["ANSWERS", "COORDINATION", "ENVIRONMENT", "PROBE", "OTHER"]
-CODERS = ["claude-sonnet-5-5", "openai/gpt-4o-mini"]
-PACE = {"openai/gpt-4o-mini": 13.0}  # seconds between calls: the gateway allows 5 requests a minute per model
+CODERS = os.environ.get("CODERS", "claude-sonnet-5-5,openai/gpt-4o-mini").split(",")
+PACE = {"openai/gpt-4o-mini": 13.0, "openai/gpt-oss-120b": 13.0}  # seconds between calls: the gateway allows 5 requests a minute per model
 _last: dict = {}
 _locks: dict = {}
 

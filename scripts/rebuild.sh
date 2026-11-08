@@ -4,6 +4,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 uv run python -m analysis.aggregate > /dev/null
 uv run python -m analysis.figures
+[ -f realdata/coded_real.json ] && uv run python -m realdata.compare > /dev/null
+uv run python -m analysis.mechanism > /dev/null
 uv run python -m analysis.numbers
 uv run python -m analysis.readme_results
 uv run python -m analysis.export_site runs/sonnet-5-5__encouraged+invite__s100.json.gz

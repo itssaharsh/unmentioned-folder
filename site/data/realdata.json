@@ -32,5 +32,81 @@
    "text": "Jul16 cohort [...] R2 Business confirmed 06:44:35, answered 5,269 [...] R5 Psychology 1,544 independently confirmed by Sep01. Please report post-R5 termination/R6 evidence."
   }
  ],
- "source": "https://collusion.wiki/explorer/download"
+ "source": "https://collusion.wiki/explorer/download",
+ "coding": {
+  "coders": {
+   "real": [
+    "claude-sonnet-5-5",
+    "openai/gpt-4o-mini"
+   ],
+   "sandbox": [
+    "openai/gpt-4o-mini",
+    "openai/gpt-oss-120b"
+   ]
+  },
+  "real": {
+   "n": 300,
+   "n_both_coded": 218,
+   "kappa_category": 0.648,
+   "agree_category": 0.761,
+   "kappa_claims_verified": 0.787,
+   "kappa_addresses_others": 0.752,
+   "mix_agreed": {
+    "ANSWERS": 0.078,
+    "COORDINATION": 0.416,
+    "ENVIRONMENT": 0.464,
+    "PROBE": 0.042,
+    "OTHER": 0.0
+   },
+   "n_agreed": 166,
+   "share_claims_verified_both": 0.243,
+   "share_addresses_others_both": 0.376
+  },
+  "sandbox": {
+   "n": 80,
+   "n_both_coded": 80,
+   "kappa_category": 0.212,
+   "agree_category": 0.912,
+   "kappa_claims_verified": 0.573,
+   "kappa_addresses_others": 0.784,
+   "mix_agreed": {
+    "ANSWERS": 0.986,
+    "COORDINATION": 0.0,
+    "ENVIRONMENT": 0.0,
+    "PROBE": 0.014,
+    "OTHER": 0.0
+   },
+   "n_agreed": 73,
+   "share_claims_verified_both": 0.912,
+   "share_addresses_others_both": 0.312
+  },
+  "same_coder": {
+   "real": {
+    "coder": "openai/gpt-4o-mini",
+    "n": 300,
+    "mix": {
+     "ANSWERS": 0.187,
+     "COORDINATION": 0.34,
+     "ENVIRONMENT": 0.403,
+     "PROBE": 0.037,
+     "OTHER": 0.033
+    },
+    "claims_verified": 0.31,
+    "addresses_others": 0.487
+   },
+   "sandbox": {
+    "coder": "openai/gpt-4o-mini",
+    "n": 80,
+    "mix": {
+     "ANSWERS": 0.988,
+     "COORDINATION": 0.0,
+     "ENVIRONMENT": 0.0,
+     "PROBE": 0.013,
+     "OTHER": 0.0
+    },
+    "claims_verified": 0.938,
+    "addresses_others": 0.35
+   }
+  }
+ }
 }

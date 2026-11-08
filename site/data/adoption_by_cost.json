@@ -43,6 +43,13 @@
  },
  {
   "model": "openai/gpt-oss-120b",
+  "cost": 4,
+  "readers": 4,
+  "adopted": 3,
+  "caught": 1
+ },
+ {
+  "model": "openai/gpt-oss-120b",
   "cost": 3,
   "readers": 2,
   "adopted": 2,
@@ -58,22 +65,29 @@
  {
   "model": "openai/gpt-5-nano",
   "cost": 3,
-  "readers": 2,
-  "adopted": 1,
+  "readers": 5,
+  "adopted": 4,
   "caught": 0
+ },
+ {
+  "model": "deepseek-ai/DeepSeek-V4-Pro",
+  "cost": 3,
+  "readers": 24,
+  "adopted": 3,
+  "caught": 20
  },
  {
   "model": "all",
   "cost": 4,
-  "readers": 97,
-  "adopted": 47,
-  "caught": 13
+  "readers": 101,
+  "adopted": 50,
+  "caught": 14
  },
  {
   "model": "all",
   "cost": 3,
-  "readers": 96,
-  "adopted": 9,
-  "caught": 77
+  "readers": 123,
+  "adopted": 15,
+  "caught": 97
  }
 ]

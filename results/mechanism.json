@@ -1,0 +1,134 @@
+{
+ "relay_answer_source_waves_2_4": {
+  "claude-haiku-4-5|encouraged+invite": {
+   "self_checked": 29,
+   "unchecked": 1
+  },
+  "claude-haiku-4-5|isolated": {
+   "self_checked": 28,
+   "unchecked": 0
+  },
+  "claude-haiku-5-5|encouraged+invite": {
+   "self_checked": 73,
+   "unchecked": 48
+  },
+  "claude-haiku-5-5|isolated": {
+   "self_checked": 56,
+   "unchecked": 0
+  },
+  "openai/gpt-4.1-mini|isolated": {
+   "self_checked": 35,
+   "unchecked": 0
+  },
+  "openai/gpt-oss-120b|encouraged+invite": {
+   "self_checked": 2,
+   "unchecked": 0
+  },
+  "openai/gpt-oss-120b|isolated": {
+   "self_checked": 8,
+   "unchecked": 0
+  },
+  "claude-sonnet-5-5|encouraged+invite": {
+   "self_checked": 61,
+   "unchecked": 69
+  },
+  "claude-sonnet-5-5|isolated": {
+   "self_checked": 51,
+   "unchecked": 0
+  }
+ },
+ "checked_by_cost": {
+  "deepseek-ai/DeepSeek-V4-Pro": {
+   "3": {
+    "checked": 45,
+    "of": 72
+   },
+   "4": {
+    "checked": 1,
+    "of": 24
+   }
+  },
+  "claude-haiku-4-5": {
+   "3": {
+    "checked": 61,
+    "of": 117
+   },
+   "4": {
+    "checked": 0,
+    "of": 39
+   }
+  },
+  "claude-haiku-5-5": {
+   "3": {
+    "checked": 176,
+    "of": 255
+   },
+   "4": {
+    "checked": 1,
+    "of": 85
+   }
+  },
+  "openai/gpt-5-nano": {
+   "3": {
+    "checked": 0,
+    "of": 15
+   },
+   "4": {
+    "checked": 0,
+    "of": 5
+   }
+  },
+  "openai/gpt-oss-120b": {
+   "3": {
+    "checked": 3,
+    "of": 18
+   },
+   "4": {
+    "checked": 1,
+    "of": 6
+   }
+  },
+  "openai/gpt-oss-20b": {
+   "3": {
+    "checked": 2,
+    "of": 3
+   },
+   "4": {
+    "checked": 0,
+    "of": 1
+   }
+  },
+  "claude-sonnet-5-5": {
+   "3": {
+    "checked": 117,
+    "of": 192
+   },
+   "4": {
+    "checked": 9,
+    "of": 64
+   }
+  }
+ },
+ "pointer_use_waves_2_4": {
+  "deepseek-ai/DeepSeek-V4-Pro": {
+   "used": 0,
+   "of": 9
+  },
+  "claude-haiku-4-5": {
+   "used": 0,
+   "of": 18
+  },
+  "claude-haiku-5-5": {
+   "used": 2,
+   "of": 36
+  },
+  "openai/gpt-oss-120b": {
+   "used": 0,
+   "of": 9
+  },
+  "claude-sonnet-5-5": {
+   "used": 0,
+   "of": 36
+  }
+ }
+}
