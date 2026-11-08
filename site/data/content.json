@@ -1,0 +1,9 @@
+{
+ "title": "Unmentioned Folder",
+ "question": "How little does it take for parallel AI agents to start a message board?",
+ "answer": "No agent opened a shared folder nobody mentioned (0 of 72), and an empty folder stayed empty (0 of 48 wrote in it). But one note inviting agents to pool answers, with no answers in it, was enough: early agents posted “confirmed” results with record ids, and Claude Sonnet 5.5’s accuracy rose from 56% in the first wave to 96% in the last. One line in the system prompt stopped it.",
+ "named_example": "Episode s100, Claude Sonnet 5.5, encouraged + invite: 12 agents in 4 waves; the shared folder starts with one note from r-0412 asking agents to pool what they confirm.",
+ "report_url": "https://github.com/itssaharsh/unmentioned-folder/blob/main/report/unmentioned-folder.pdf",
+ "repo_url": "https://github.com/itssaharsh/unmentioned-folder",
+ "event": "Apart Research × AI Alignment Foundation · Swarm Alignment Hackathon 2026"
+}

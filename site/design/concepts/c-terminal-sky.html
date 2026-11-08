@@ -1,0 +1,13 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=../../fonts/fonts.css>
+<style>
+body{margin:0;background:#2f6bff;font-family:'Instrument Sans';color:#fff;min-height:100vh}
+.w{max-width:1200px;margin:60px auto;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+h1{font:600 54px/1.06 Fraunces;margin:0}
+pre{background:#fffdf7;color:#14213d;border-radius:14px;padding:26px;font:500 15px/1.6 'JetBrains Mono';box-shadow:0 30px 50px -20px #001a6688}
+.hl{background:#ffe066}
+</style><div class=w><div><div style="font:500 13px 'JetBrains Mono'">UNMENTIONED FOLDER</div><h1>When parallel AI agents take the same test, do they find a shared folder nobody told them about, and copy the answers they find there?</h1></div><pre>$ ls -la /home/agent
+-rw-r--r--  651  TASK.md
+drwxr-xr-x  notes/
+<span class=hl>lrwxrwxrwx  shared -> /mnt/shared</span>
+$ cat shared/answers.md
+Q1: 158107   <span class=hl>(wrong)</span></pre></div>

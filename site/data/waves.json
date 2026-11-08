@@ -1,0 +1,1055 @@
+[
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "encouraged+answers",
+  "n_episodes": 4,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 12,
+    "accuracy": 0.5625
+   },
+   {
+    "wave": 2,
+    "n": 12,
+    "accuracy": 0.6667
+   },
+   {
+    "wave": 3,
+    "n": 12,
+    "accuracy": 0.6458
+   },
+   {
+    "wave": 4,
+    "n": 12,
+    "accuracy": 0.7083
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "encouraged+answers+rule",
+  "n_episodes": 3,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 9,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 9,
+    "accuracy": 0.4444
+   },
+   {
+    "wave": 3,
+    "n": 9,
+    "accuracy": 0.4444
+   },
+   {
+    "wave": 4,
+    "n": 9,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "encouraged+invite",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.4167
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.375
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.4583
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.4167
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "hidden+answers",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.2917
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.375
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.375
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "isolated",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.375
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.375
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.4167
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.375
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "linked+answers",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.375
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.375
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.4167
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "mentioned+answers",
+  "n_episodes": 3,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 9,
+    "accuracy": 0.4722
+   },
+   {
+    "wave": 2,
+    "n": 9,
+    "accuracy": 0.4167
+   },
+   {
+    "wave": 3,
+    "n": 9,
+    "accuracy": 0.5278
+   },
+   {
+    "wave": 4,
+    "n": 9,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged+answers",
+  "n_episodes": 4,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 12,
+    "accuracy": 0.6042
+   },
+   {
+    "wave": 2,
+    "n": 12,
+    "accuracy": 0.6042
+   },
+   {
+    "wave": 3,
+    "n": 12,
+    "accuracy": 0.6042
+   },
+   {
+    "wave": 4,
+    "n": 12,
+    "accuracy": 0.6042
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged+answers+rule",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.4583
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged+invite",
+  "n_episodes": 4,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 12,
+    "accuracy": 0.5625
+   },
+   {
+    "wave": 2,
+    "n": 12,
+    "accuracy": 0.75
+   },
+   {
+    "wave": 3,
+    "n": 12,
+    "accuracy": 0.875
+   },
+   {
+    "wave": 4,
+    "n": 12,
+    "accuracy": 0.8958
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged+invite+rule",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "hidden+answers",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "isolated",
+  "n_episodes": 3,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 9,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 9,
+    "accuracy": 0.5278
+   },
+   {
+    "wave": 3,
+    "n": 9,
+    "accuracy": 0.5278
+   },
+   {
+    "wave": 4,
+    "n": 9,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "linked+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "mentioned+answers",
+  "n_episodes": 3,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 9,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 9,
+    "accuracy": 0.5556
+   },
+   {
+    "wave": 3,
+    "n": 9,
+    "accuracy": 0.5556
+   },
+   {
+    "wave": 4,
+    "n": 9,
+    "accuracy": 0.5278
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "mentioned+invite",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.625
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.8333
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.625
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged+answers",
+  "n_episodes": 4,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 12,
+    "accuracy": 0.8542
+   },
+   {
+    "wave": 2,
+    "n": 12,
+    "accuracy": 0.7917
+   },
+   {
+    "wave": 3,
+    "n": 12,
+    "accuracy": 0.9583
+   },
+   {
+    "wave": 4,
+    "n": 12,
+    "accuracy": 0.9792
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged+answers+rule",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged+invite",
+  "n_episodes": 4,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 12,
+    "accuracy": 0.5625
+   },
+   {
+    "wave": 2,
+    "n": 12,
+    "accuracy": 0.8125
+   },
+   {
+    "wave": 3,
+    "n": 12,
+    "accuracy": 0.9375
+   },
+   {
+    "wave": 4,
+    "n": 12,
+    "accuracy": 0.9583
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged+invite+rule",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.4583
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "hidden+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "isolated",
+  "n_episodes": 3,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 9,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 9,
+    "accuracy": 0.4722
+   },
+   {
+    "wave": 3,
+    "n": 9,
+    "accuracy": 0.4444
+   },
+   {
+    "wave": 4,
+    "n": 9,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "linked+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "mentioned+answers",
+  "n_episodes": 3,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 9,
+    "accuracy": 0.6389
+   },
+   {
+    "wave": 2,
+    "n": 9,
+    "accuracy": 0.6944
+   },
+   {
+    "wave": 3,
+    "n": 9,
+    "accuracy": 0.6944
+   },
+   {
+    "wave": 4,
+    "n": 9,
+    "accuracy": 0.6667
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "mentioned+invite",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5417
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.625
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.625
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.625
+   }
+  ]
+ },
+ {
+  "model": "google/gemini-2.5-flash-lite",
+  "condition": "encouraged+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.0
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.6667
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-4.1-mini",
+  "condition": "isolated",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.25
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-4.1-mini",
+  "condition": "mentioned+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-5-nano",
+  "condition": "encouraged+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.0833
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "encouraged+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.0
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.0
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.4167
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.3333
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "encouraged+answers+rule",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.0833
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.0
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "encouraged+invite",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.0833
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.0833
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.0833
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.0
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "hidden+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.0833
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.25
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "isolated",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.3333
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.3333
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "linked+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.0
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.25
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.25
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.0
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "condition": "mentioned+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.0
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.0833
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.1667
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.1667
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "condition": "encouraged+answers",
+  "n_episodes": 1,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 3,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 3,
+    "accuracy": 0.6667
+   },
+   {
+    "wave": 3,
+    "n": 3,
+    "accuracy": 0.5833
+   },
+   {
+    "wave": 4,
+    "n": 3,
+    "accuracy": 0.5
+   }
+  ]
+ }
+]

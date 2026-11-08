@@ -56,6 +56,13 @@
   "caught": 1
  },
  {
+  "model": "openai/gpt-5-nano",
+  "cost": 3,
+  "readers": 2,
+  "adopted": 1,
+  "caught": 0
+ },
+ {
   "model": "all",
   "cost": 4,
   "readers": 97,
@@ -65,8 +72,8 @@
  {
   "model": "all",
   "cost": 3,
-  "readers": 94,
-  "adopted": 8,
+  "readers": 96,
+  "adopted": 9,
   "caught": 77
  }
 ]

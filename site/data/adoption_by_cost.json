@@ -1,0 +1,79 @@
+[
+ {
+  "model": "claude-haiku-4-5",
+  "cost": 4,
+  "readers": 23,
+  "adopted": 20,
+  "caught": 0
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "cost": 3,
+  "readers": 16,
+  "adopted": 6,
+  "caught": 10
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "cost": 4,
+  "readers": 42,
+  "adopted": 10,
+  "caught": 1
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "cost": 3,
+  "readers": 43,
+  "adopted": 0,
+  "caught": 34
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "cost": 4,
+  "readers": 32,
+  "adopted": 17,
+  "caught": 12
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "cost": 3,
+  "readers": 32,
+  "adopted": 0,
+  "caught": 32
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "cost": 3,
+  "readers": 2,
+  "adopted": 2,
+  "caught": 0
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "cost": 3,
+  "readers": 1,
+  "adopted": 0,
+  "caught": 1
+ },
+ {
+  "model": "openai/gpt-5-nano",
+  "cost": 3,
+  "readers": 2,
+  "adopted": 1,
+  "caught": 0
+ },
+ {
+  "model": "all",
+  "cost": 4,
+  "readers": 97,
+  "adopted": 47,
+  "caught": 13
+ },
+ {
+  "model": "all",
+  "cost": 3,
+  "readers": 96,
+  "adopted": 9,
+  "caught": 77
+ }
+]

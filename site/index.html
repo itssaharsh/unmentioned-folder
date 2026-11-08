@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unmentioned Folder</title>
+<meta name="description" content="When parallel AI agents take the same test, do they find a shared folder nobody told them about, and copy the answers they find there? Data, replay and method.">
+<meta property="og:title" content="Unmentioned Folder">
+<meta property="og:description" content="Do parallel AI agents find a shared folder nobody told them about, and copy the answers they find there?">
+<meta property="og:image" content="https://unmentioned-folder.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#e8eef2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Fraunces-normal-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#result">Skip to the result</a>
+<header class="top">
+  <a class="mark" href="#top" aria-label="Unmentioned Folder, top">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M3 9a3 3 0 0 1 3-3h7l3 3h10a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#e8b85a"/><path d="M3 13h26v11a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#f3d38c"/><circle cx="23" cy="20" r="4.2" fill="none" stroke="#d1242f" stroke-width="2.2"/><path d="M21 22l4-4" stroke="#d1242f" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <span>Unmentioned Folder</span>
+  </a>
+  <nav aria-label="Sections">
+    <a href="#table">Table</a><a href="#replay">Replay</a><a href="#cost" id="nav-cost" hidden>Wrong answer</a><a href="#method">Method</a><a href="#control">Control</a><a href="#real" id="nav-real" hidden>Real board</a><a href="#scope">Scope</a><a href="#rerun">Rerun</a>
+  </nav>
+  <div class="toplinks" id="toplinks"></div>
+</header>
+
+<main id="top">
+<section class="hero" id="result" aria-labelledby="q">
+  <div class="hero-head">
+    <div class="hero-q">
+      <p class="eyebrow" id="event"></p>
+      <h1 id="q">Loading the question</h1>
+    </div>
+    <div class="hero-a">
+      <p class="answer" id="answer"></p>
+    </div>
+  </div>
+
+  <ul class="bignums" id="bignums" aria-label="Key numbers"></ul>
+  <div class="folder" id="wavefig">
+    <div class="folder-tab"><span class="mono">accuracy by wave</span></div>
+    <div class="folder-body">
+      <div class="fig-bar"><div class="wlegend" id="wlegend" aria-label="Legend"></div><p class="fig-n" id="wave-n"></p></div>
+      <div class="waves" id="waves"></div>
+      <p class="fig-note" id="wave-note"></p>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="table" aria-labelledby="h-table">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Every condition</p><h2 id="h-table">The full table: who opened, read, wrote and got it right</h2></div>
+    <div class="folder" id="fig">
+      <div class="folder-tab"><span class="mono">all conditions</span></div>
+      <div class="folder-body">
+        <div class="fig-bar"><div class="metrics" id="metrics" role="group" aria-label="Choose a measure"></div><p class="fig-n" id="fig-n"></p></div>
+        <p class="metric-def" id="metric-def" aria-live="polite"></p>
+        <div class="gradebook" id="gradebook" tabindex="0" role="region" aria-label="Results table, scrolls sideways on small screens"></div>
+        <p class="fig-note" id="fig-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="replay" aria-labelledby="h-replay">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Signature episode</p>
+      <h2 id="h-replay">One episode, replayed: twelve agents and the board they share</h2>
+      <p class="lede" id="replay-lede"></p><p class="small" id="named-example" style="font-style:italic"></p>
+    </div>
+    <div class="replay" id="replay-root">
+      <div class="r-controls" id="r-controls"></div>
+      <div class="r-legend" id="r-legend"></div>
+      <div class="r-main">
+        <div class="r-grid" id="r-grid" role="group" aria-label="The twelve agents in four waves"></div>
+        <div class="r-side">
+          <div class="r-folder" id="r-folder"></div>
+          <div class="r-detail" id="r-detail" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="cost" aria-labelledby="h-cost" hidden>
+  <div class="sec-head"><p class="eyebrow">Second finding</p><h2 id="h-cost">A planted wrong answer spreads when it is expensive to check</h2><p class="lede" id="cost-lede"></p></div>
+  <div id="cost-body"></div>
+</section>
+
+<section class="wrap sec" id="method" aria-labelledby="h-method">
+  <div class="sec-head"><p class="eyebrow">Method</p><h2 id="h-method">The exam, the folder and what we count</h2></div>
+  <div class="method" id="method-body"></div>
+</section>
+
+<section class="band alt" id="control" aria-labelledby="h-control">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">The control</p><h2 id="h-control">The same exam with no folder at all</h2><p class="lede" id="control-lede"></p></div>
+    <div id="control-body"></div>
+  </div>
+</section>
+
+<section class="wrap sec" id="real" aria-labelledby="h-real" hidden>
+  <div class="sec-head"><p class="eyebrow">Checked against the real board</p><h2 id="h-real">What agents actually post on a shared board</h2><p class="lede" id="real-lede"></p></div>
+  <div id="real-body"></div>
+</section>
+
+<section class="wrap sec" id="scope" aria-labelledby="h-scope">
+  <div class="sec-head"><p class="eyebrow">Scope of the claim</p><h2 id="h-scope">What this does and does not show</h2></div>
+  <ol class="scope" id="scope-body"></ol>
+</section>
+
+<section class="wrap sec" id="rerun" aria-labelledby="h-rerun">
+  <div class="sec-head"><p class="eyebrow">Reproduce</p><h2 id="h-rerun">Rebuild every number on this page</h2></div>
+  <div class="cmd"><pre id="cmd" class="mono"><code>uv run python -m analysis.aggregate
+uv run python -m analysis.export_site runs/&lt;episode&gt;.json.gz</code></pre><button class="btn" id="copy" type="button">Copy</button></div>
+  <p class="small">The first command reads every logged episode in <span class="mono">runs/</span> and writes the table; the second writes the three data files this page reads at load time. Nothing on this page is typed in by hand.</p>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div><strong>Unmentioned Folder</strong><br><span id="foot-event"></span></div>
+    <div class="toplinks" id="footlinks"></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
-\newcommand{\nmodels}{6}
-\newcommand{\nagents}{912}
-\newcommand{\nepisodes}{76}
-\newcommand{\modellist}{Claude Haiku 4.5, Claude Haiku 5.5, Claude Sonnet 5.5, gpt-oss-120b, gpt-oss-20b, GPT-4.1 mini}
+\newcommand{\nmodels}{8}
+\newcommand{\nagents}{948}
+\newcommand{\nepisodes}{79}
+\newcommand{\modellist}{Claude Haiku 4.5, Claude Haiku 5.5, Claude Sonnet 5.5, gpt-oss-120b, gpt-oss-20b, GPT-5 nano, GPT-4.1 mini, Gemini 2.5 Flash-Lite}
 \newcommand{\nHaikuFourIso}{24}
 \newcommand{\OpenHaikuFourIso}{0\%}
 \newcommand{\OpenHaikuFourIsoCI}{[0\%, 0\%]}
@@ -589,6 +589,23 @@
 \newcommand{\AccOssBigEncRuleWB}{33\%}
 \newcommand{\AccOssBigEncRuleWC}{33\%}
 \newcommand{\AccOssBigEncRuleWD}{0\%}
+\newcommand{\nOssBigInv}{12}
+\newcommand{\OpenOssBigInv}{42\%}
+\newcommand{\OpenOssBigInvCI}{[42\%, 42\%]}
+\newcommand{\ReadOssBigInv}{8\%}
+\newcommand{\ReadOssBigInvCI}{[8\%, 8\%]}
+\newcommand{\UnverOssBigInv}{0\%}
+\newcommand{\UnverOssBigInvCI}{[0\%, 0\%]}
+\newcommand{\WrongOssBigInv}{0\%}
+\newcommand{\WrongOssBigInvCI}{[0\%, 0\%]}
+\newcommand{\WroteOssBigInv}{0\%}
+\newcommand{\WroteOssBigInvCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigInv}{6\%}
+\newcommand{\AccOssBigInvCI}{[6\%, 6\%]}
+\newcommand{\AccOssBigInvWA}{8\%}
+\newcommand{\AccOssBigInvWB}{8\%}
+\newcommand{\AccOssBigInvWC}{8\%}
+\newcommand{\AccOssBigInvWD}{0\%}
 \newcommand{\nOssSmallEnc}{12}
 \newcommand{\OpenOssSmallEnc}{25\%}
 \newcommand{\OpenOssSmallEncCI}{[25\%, 25\%]}
@@ -608,6 +625,25 @@
 \newcommand{\AccOssSmallEncWB}{67\%}
 \newcommand{\AccOssSmallEncWC}{58\%}
 \newcommand{\AccOssSmallEncWD}{50\%}
+\newcommand{\nNanoEnc}{12}
+\newcommand{\OpenNanoEnc}{42\%}
+\newcommand{\OpenNanoEncCI}{[42\%, 42\%]}
+\newcommand{\ReadNanoEnc}{17\%}
+\newcommand{\ReadNanoEncCI}{[17\%, 17\%]}
+\newcommand{\UnverNanoEnc}{8\%}
+\newcommand{\UnverNanoEncCI}{[8\%, 8\%]}
+\newcommand{\WrongNanoEnc}{8\%}
+\newcommand{\WrongNanoEncCI}{[8\%, 8\%]}
+\newcommand{\WroteNanoEnc}{8\%}
+\newcommand{\WroteNanoEncCI}{[8\%, 8\%]}
+\newcommand{\AccNanoEnc}{23\%}
+\newcommand{\AccNanoEncCI}{[23\%, 23\%]}
+\newcommand{\UnverReadNanoEnc}{1/2}
+\newcommand{\WrongReadNanoEnc}{1/2}
+\newcommand{\AccNanoEncWA}{33\%}
+\newcommand{\AccNanoEncWB}{17\%}
+\newcommand{\AccNanoEncWC}{33\%}
+\newcommand{\AccNanoEncWD}{8\%}
 \newcommand{\nFourOneMiniIso}{12}
 \newcommand{\OpenFourOneMiniIso}{0\%}
 \newcommand{\OpenFourOneMiniIsoCI}{[0\%, 0\%]}
@@ -642,6 +678,23 @@
 \newcommand{\AccFourOneMiniMenWB}{50\%}
 \newcommand{\AccFourOneMiniMenWC}{50\%}
 \newcommand{\AccFourOneMiniMenWD}{50\%}
+\newcommand{\nGeminiEnc}{12}
+\newcommand{\OpenGeminiEnc}{0\%}
+\newcommand{\OpenGeminiEncCI}{[0\%, 0\%]}
+\newcommand{\ReadGeminiEnc}{0\%}
+\newcommand{\ReadGeminiEncCI}{[0\%, 0\%]}
+\newcommand{\UnverGeminiEnc}{0\%}
+\newcommand{\UnverGeminiEncCI}{[0\%, 0\%]}
+\newcommand{\WrongGeminiEnc}{0\%}
+\newcommand{\WrongGeminiEncCI}{[0\%, 0\%]}
+\newcommand{\WroteGeminiEnc}{0\%}
+\newcommand{\WroteGeminiEncCI}{[0\%, 0\%]}
+\newcommand{\AccGeminiEnc}{25\%}
+\newcommand{\AccGeminiEncCI}{[25\%, 25\%]}
+\newcommand{\AccGeminiEncWA}{17\%}
+\newcommand{\AccGeminiEncWB}{0\%}
+\newcommand{\AccGeminiEncWC}{17\%}
+\newcommand{\AccGeminiEncWD}{67\%}
 \newcommand{\hiddenOpened}{0}
 \newcommand{\hiddenN}{72}
 \newcommand{\hiddenModels}{4}
@@ -671,12 +724,15 @@
 \newcommand{\AdoptCheapOssSmall}{0/1}
 \newcommand{\AdoptPctCheapOssSmall}{0\%}
 \newcommand{\CaughtCheapOssSmall}{1/1}
+\newcommand{\AdoptCheapNano}{1/2}
+\newcommand{\AdoptPctCheapNano}{50\%}
+\newcommand{\CaughtCheapNano}{0/2}
 \newcommand{\AdoptCostlyAll}{47/97}
 \newcommand{\AdoptPctCostlyAll}{48\%}
 \newcommand{\CaughtCostlyAll}{13/97}
-\newcommand{\AdoptCheapAll}{8/94}
+\newcommand{\AdoptCheapAll}{9/96}
 \newcommand{\AdoptPctCheapAll}{9\%}
-\newcommand{\CaughtCheapAll}{77/94}
+\newcommand{\CaughtCheapAll}{77/96}
 \newcommand{\realRevisions}{14,591}
 \newcommand{\realLabels}{3,103}
 \newcommand{\realPages}{4,579}
