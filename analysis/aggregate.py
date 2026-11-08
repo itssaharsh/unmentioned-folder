@@ -24,7 +24,8 @@ OUT = ROOT / "results"
 MODEL_ORDER = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "openai/gpt-5-nano", "openai/gpt-4.1-mini",
                "google/gemini-2.5-flash-lite", "deepseek-ai/DeepSeek-V4-Pro", "claude-haiku-4-5", "claude-haiku-5-5",
                "claude-sonnet-5-5"]
-COND_ORDER = ["isolated", "hidden+answers", "linked+answers", "mentioned+answers", "mentioned+answers+rule",
+COND_ORDER = ["isolated", "hidden+answers", "linked+answers", "mentioned+answers", "encouraged+answers",
+              "encouraged+answers-river", "encouraged+answers-cheap", "mentioned+answers+rule",
               "mentioned+invite", "mentioned"]
 RATES = ["touched", "read_note", "copied_any", "copied_unverified_any", "adopted_wrong", "wrote", "posted_answers"]
 

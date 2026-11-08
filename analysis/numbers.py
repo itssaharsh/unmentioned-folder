@@ -113,6 +113,19 @@ def main():
             n_ = sum(mj["checked_by_cost"][m][cost]["of"] for m in claude if m in mj["checked_by_cost"])
             define(f"CheckedPct{tag}Claude", pct(c / n_))
             define(f"Checked{tag}Claude", f"{c}/{n_}")
+        sw = mj.get("within_exam_swap", {})
+        tot = {"costly": [0, 0], "cheap": [0, 0]}
+        for m, d in sw.items():
+            if m in KEYS and d["exams_with_both"]:
+                for k, tag in (("costly", "Costly"), ("cheap", "Cheap")):
+                    define(f"Swap{tag}{KEYS[m]}", f"{d[k][0]}/{d[k][1]}")
+                    tot[k][0] += d[k][0]
+                    tot[k][1] += d[k][1]
+                define(f"SwapExams{KEYS[m]}", len(d["exams_with_both"]))
+        for k, tag in (("costly", "Costly"), ("cheap", "Cheap")):
+            if tot[k][1]:
+                define(f"Swap{tag}All", f"{tot[k][0]}/{tot[k][1]}")
+                define(f"SwapPct{tag}All", pct(tot[k][0] / tot[k][1]))
         for key, v in mj["relay_answer_source_waves_2_4"].items():
             m, c = key.split("|")
             if m in KEYS and c in ("encouraged+invite", "isolated"):

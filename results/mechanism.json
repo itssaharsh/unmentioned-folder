@@ -1,4 +1,282 @@
 {
+ "within_exam_swap": {
+  "deepseek-ai/DeepSeek-V4-Pro": {
+   "exams_with_both": [],
+   "costly": [
+    0,
+    0
+   ],
+   "cheap": [
+    0,
+    0
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      0,
+      0
+     ],
+     "cheap": [
+      1,
+      12
+     ]
+    }
+   }
+  },
+  "claude-haiku-4-5": {
+   "exams_with_both": [
+    100,
+    101,
+    102,
+    103
+   ],
+   "costly": [
+    27,
+    27
+   ],
+   "cheap": [
+    8,
+    22
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      6,
+      6
+     ],
+     "cheap": [
+      0,
+      3
+     ]
+    },
+    "101": {
+     "costly": [
+      7,
+      7
+     ],
+     "cheap": [
+      3,
+      3
+     ]
+    },
+    "102": {
+     "costly": [
+      4,
+      4
+     ],
+     "cheap": [
+      0,
+      6
+     ]
+    },
+    "103": {
+     "costly": [
+      10,
+      10
+     ],
+     "cheap": [
+      5,
+      10
+     ]
+    }
+   }
+  },
+  "claude-haiku-5-5": {
+   "exams_with_both": [
+    100,
+    101,
+    102,
+    103
+   ],
+   "costly": [
+    16,
+    43
+   ],
+   "cheap": [
+    2,
+    40
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      7,
+      12
+     ],
+     "cheap": [
+      0,
+      10
+     ]
+    },
+    "101": {
+     "costly": [
+      2,
+      11
+     ],
+     "cheap": [
+      2,
+      11
+     ]
+    },
+    "102": {
+     "costly": [
+      4,
+      11
+     ],
+     "cheap": [
+      0,
+      10
+     ]
+    },
+    "103": {
+     "costly": [
+      3,
+      9
+     ],
+     "cheap": [
+      0,
+      9
+     ]
+    }
+   }
+  },
+  "openai/gpt-5-nano": {
+   "exams_with_both": [],
+   "costly": [
+    0,
+    0
+   ],
+   "cheap": [
+    0,
+    0
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      0,
+      0
+     ],
+     "cheap": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  "openai/gpt-oss-120b": {
+   "exams_with_both": [],
+   "costly": [
+    0,
+    0
+   ],
+   "cheap": [
+    0,
+    0
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      0,
+      0
+     ],
+     "cheap": [
+      1,
+      1
+     ]
+    },
+    "102": {
+     "costly": [
+      1,
+      1
+     ],
+     "cheap": [
+      0,
+      0
+     ]
+    }
+   }
+  },
+  "openai/gpt-oss-20b": {
+   "exams_with_both": [],
+   "costly": [
+    0,
+    0
+   ],
+   "cheap": [
+    0,
+    0
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      0,
+      0
+     ],
+     "cheap": [
+      0,
+      1
+     ]
+    }
+   }
+  },
+  "claude-sonnet-5-5": {
+   "exams_with_both": [
+    100,
+    101,
+    102,
+    103
+   ],
+   "costly": [
+    22,
+    42
+   ],
+   "cheap": [
+    2,
+    42
+   ],
+   "by_exam": {
+    "100": {
+     "costly": [
+      6,
+      12
+     ],
+     "cheap": [
+      0,
+      12
+     ]
+    },
+    "101": {
+     "costly": [
+      6,
+      12
+     ],
+     "cheap": [
+      2,
+      12
+     ]
+    },
+    "102": {
+     "costly": [
+      4,
+      11
+     ],
+     "cheap": [
+      0,
+      11
+     ]
+    },
+    "103": {
+     "costly": [
+      6,
+      7
+     ],
+     "cheap": [
+      0,
+      7
+     ]
+    }
+   }
+  }
+ },
  "relay_answer_source_waves_2_4": {
   "claude-haiku-4-5|encouraged+invite": {
    "self_checked": 29,
@@ -50,22 +328,22 @@
   },
   "claude-haiku-4-5": {
    "3": {
-    "checked": 61,
-    "of": 117
+    "checked": 108,
+    "of": 192
    },
    "4": {
     "checked": 0,
-    "of": 39
+    "of": 64
    }
   },
   "claude-haiku-5-5": {
    "3": {
-    "checked": 176,
-    "of": 255
+    "checked": 266,
+    "of": 381
    },
    "4": {
-    "checked": 1,
-    "of": 85
+    "checked": 2,
+    "of": 127
    }
   },
   "openai/gpt-5-nano": {
@@ -100,12 +378,12 @@
   },
   "claude-sonnet-5-5": {
    "3": {
-    "checked": 117,
-    "of": 192
+    "checked": 183,
+    "of": 318
    },
    "4": {
-    "checked": 9,
-    "of": 64
+    "checked": 20,
+    "of": 106
    }
   }
  },

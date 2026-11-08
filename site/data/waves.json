@@ -55,6 +55,60 @@
  },
  {
   "model": "claude-haiku-4-5",
+  "condition": "encouraged+answers-cheap",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.6667
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.6667
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.4167
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.625
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
+  "condition": "encouraged+answers-river",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.625
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.7083
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5417
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.7083
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-4-5",
   "condition": "encouraged+invite",
   "n_episodes": 2,
   "by_wave": [
@@ -266,6 +320,60 @@
     "wave": 4,
     "n": 6,
     "accuracy": 0.4583
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged+answers-cheap",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.7083
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.5
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-haiku-5-5",
+  "condition": "encouraged+answers-river",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.7083
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.6667
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.7083
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.625
    }
   ]
  },
@@ -536,6 +644,60 @@
     "wave": 4,
     "n": 6,
     "accuracy": 0.5
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged+answers-cheap",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.8333
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.9167
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 1.0
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 1.0
+   }
+  ]
+ },
+ {
+  "model": "claude-sonnet-5-5",
+  "condition": "encouraged+answers-river",
+  "n_episodes": 2,
+  "by_wave": [
+   {
+    "wave": 1,
+    "n": 6,
+    "accuracy": 0.75
+   },
+   {
+    "wave": 2,
+    "n": 6,
+    "accuracy": 0.75
+   },
+   {
+    "wave": 3,
+    "n": 6,
+    "accuracy": 0.9167
+   },
+   {
+    "wave": 4,
+    "n": 6,
+    "accuracy": 0.875
    }
   ]
  },

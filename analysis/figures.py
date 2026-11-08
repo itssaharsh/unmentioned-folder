@@ -145,7 +145,7 @@ def main():
     # Table 1 (LaTeX): model x condition
     rows = []
     order = ["isolated", "hidden+answers", "linked+answers", "mentioned+answers", "encouraged+answers",
-             "encouraged+answers+rule", "encouraged", "mentioned+invite", "encouraged+invite", "encouraged+invite+rule",
+             "encouraged+answers-river", "encouraged+answers-cheap", "encouraged+answers+rule", "encouraged", "mentioned+invite", "encouraged+invite", "encouraged+invite+rule",
              "mentioned+answers+rule", "mentioned"]
     for m in [x for x in SHORT if x in set(df.model)]:
         for c in order:
