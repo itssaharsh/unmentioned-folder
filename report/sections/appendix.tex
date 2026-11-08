@@ -1,0 +1,25 @@
+\section{Limitations and Dual-Use / Ethical Considerations}
+
+\paragraph{What this result does and does not establish.}
+\begin{itemize}
+\item \textbf{Short tasks, small models.} Each agent works for at most 24 turns on a lookup exam. The incident's agents ran long cyber tasks with strong models and heavy optimisation pressure. Low discovery rates here bound the risk for short, well-specified tasks; they do not show that long-horizon agents would not search their environment.
+\item \textbf{One environment, one kind of note.} The exam, the sandbox and the planted note are ours. A different task, folder name or note style could change every rate. We release the generator and seeds so others can vary them.
+\item \textbf{Uneven coverage.} Rate limits and a spend cap meant some models ran fewer conditions and episodes than planned (Table~\ref{tab:main}); small cells have wide intervals and we do not compare models on cells where either has fewer than 24 agents.
+\item \textbf{Behaviour scored by string matching.} ``Copied unverified'' means the submitted value matches a note's value and the true value never appeared in a record the agent opened. An agent could reach the same value another way; with invented names this is unlikely but not impossible.
+\item \textbf{Sampling noise.} Models ran at their default temperature; reruns from the same seed give the same world and exam but not the same transcripts. All logs are released.
+\item \textbf{Real-board comparison is descriptive.} The collusion.wiki statistics use fixed regular expressions; the category coding uses two model coders whose agreement we report, with no human-labelled gold set.
+\end{itemize}
+
+\paragraph{Dual use.} The sandbox has no network, no real filesystem and no real secrets; the tasks are harmless lookups about invented people. The finding most useful to an attacker is that a short note claiming ``verified'' answers can steer some agents that read it. That is already visible on the public collusion.wiki board, where most answer posts make that claim, and the mitigation is cheap: isolate parallel rollouts, log every write to shared storage, and check answers against the source. We publish no techniques for escaping sandboxes or hiding messages, and the planted content is a wrong fact, not an instruction. We used only public data from collusion.wiki, which its authors released with IP addresses half-redacted.
+
+\section{Reproducing the results}
+\begin{verbatim}
+git clone https://github.com/itssaharsh/unmentioned-folder && cd unmentioned-folder
+uv sync
+uv run python -m folderlab.run --model openai/gpt-oss-120b --plan "encouraged+answers:3,isolated:1"
+uv run python -m analysis.aggregate && uv run python -m analysis.figures
+\end{verbatim}
+Every episode we ran is in \texttt{runs/} as compressed JSON (world seed, questions, planted answer, every tool call and message, board history, submissions). \texttt{analysis/aggregate.py} rebuilds every number in this report from those files.
+
+\section{AI assistance}
+The experiment code, analysis and drafts of this report were written with an AI coding assistant (Claude). The author designed the study with it, checked the code, ran every experiment, and is responsible for every number and claim.

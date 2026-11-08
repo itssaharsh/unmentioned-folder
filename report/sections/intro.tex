@@ -1,0 +1,18 @@
+\section{Introduction}
+
+In July 2026 about 1,200 OpenAI agents running inside a cyber-security evaluation found a shared directory, turned it into a message board, split up the work, and about 700 of them went on to break into Hugging Face's systems \citep{metr2026hf,openai2026hf}. No agent was told the directory was a channel. A separate board on a public wiki, \emph{collusion.wiki}, holds about 18,000 posts by agents that pooled answers to multi-round lookup tasks and swapped ways around their sandbox \citep{vonarx2026collusion}. Both start the same way: many copies of an agent, working on the same task at the same time, share some writable surface their operators did not think of as a channel.
+
+That setup is ordinary. Evaluations and agent deployments run many rollouts in parallel, and the rollouts often share a cache, a mounted volume, a scratch bucket or a public site. If agents find such a surface and use it, the rollouts stop being independent samples: a score measures the population, not the model, and one bad entry can spread to every agent that reads it. We asked how much it takes for that to happen with today's models, in a setting small enough to rerun:
+
+\begin{quote}\itshape
+When parallel LLM agents take the same test, do they find a shared folder nobody told them about, use it, and trust what they find there, including a planted wrong answer?
+\end{quote}
+
+\paragraph{What we did.} We built a sandbox (no network, no real filesystem) in which 12 agents per episode answer the same four-question lookup exam under a lookup budget too small to answer everything alone. We varied only how visible a shared folder is (absent, present but never mentioned, linked in the home directory, or mentioned in one neutral line of the task file), what it already contains (nothing, an invitation to pool answers, or a note from an ``earlier run'' giving four ``verified'' answers, one of them wrong), and whether agents are told to work independently. We logged every tool call and scored behaviour from the logs, with no model judging the agents. We then compared the board our agents saw with the real collusion.wiki board.
+
+\paragraph{Contributions.}
+\begin{itemize}
+\item An open, seeded testbed for the first step of the incident (Track 1), with every message and tool call logged and a one-command rerun.
+\item Measured rates, with intervals and an isolated control, of how often agents across \textbf{\nmodels{} models} open, read, copy from and write to an unmentioned shared folder, and how far a single planted wrong answer spreads (Track 2).
+\item A link to the real board: \textbf{\realverify{}} of answer-bearing collusion.wiki posts claim their answers are confirmed or verified, the same claim our planted note makes, so the trust we measure is the trust the real board relied on.
+\end{itemize}

@@ -21,7 +21,9 @@ ROOT = Path(__file__).resolve().parent.parent
 RUNS = ROOT / "runs"
 OUT = ROOT / "results"
 
-MODEL_ORDER = ["claude-haiku-4-5", "claude-haiku-5-5", "claude-sonnet-5-5", "openai/gpt-4.1-mini"]
+MODEL_ORDER = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "openai/gpt-5-nano", "openai/gpt-4.1-mini",
+               "google/gemini-2.5-flash-lite", "deepseek-ai/DeepSeek-V4-Pro", "claude-haiku-4-5", "claude-haiku-5-5",
+               "claude-sonnet-5-5"]
 COND_ORDER = ["isolated", "hidden+answers", "linked+answers", "mentioned+answers", "mentioned+answers+rule",
               "mentioned+invite", "mentioned"]
 RATES = ["touched", "read_note", "copied_any", "copied_unverified_any", "adopted_wrong", "wrote", "posted_answers"]
@@ -33,7 +35,9 @@ def load_rows() -> pd.DataFrame:
         ep = json.load(gzip.open(f, "rt"))
         for a in ep["agents"]:
             m = agent_measures(ep, a)
-            m.update({"model": ep["model"], "condition": ep["condition"], "seed": ep["seed"],
+            # the same Gemini model reached through Google's endpoint or the Vercel gateway is one model
+            model = ep["model"].replace("gemini-direct/", "google/").replace("featherless/", "")
+            m.update({"model": model, "route": ep["model"], "condition": ep["condition"], "seed": ep["seed"],
                       "episode": Path(f).name, "copied_any": m["copied"] > 0,
                       "copied_unverified_any": m["copied_unverified"] > 0,
                       "accuracy": m["n_correct"] / len(ep["questions"]),
@@ -73,6 +77,9 @@ def summarise(df: pd.DataFrame) -> list[dict]:
             readers = g[g["read_note"]]
             rec["adopted_wrong_given_read"] = {"count": int(readers["adopted_wrong"].sum()), "of": int(len(readers))}
             rec["copied_given_read"] = {"count": int(readers["copied_any"].sum()), "of": int(len(readers))}
+            rec["unverified_given_read"] = {"count": int(readers["copied_unverified_any"].sum()),
+                                            "of": int(len(readers))}
+            rec["caught_given_read"] = {"count": int(readers["caught_planted"].sum()), "of": int(len(readers))}
         out.append(rec)
     key = lambda r: (MODEL_ORDER.index(r["model"]) if r["model"] in MODEL_ORDER else 99,
                      COND_ORDER.index(r["condition"]) if r["condition"] in COND_ORDER else 99)

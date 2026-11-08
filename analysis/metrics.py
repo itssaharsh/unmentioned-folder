@@ -27,10 +27,11 @@ def opened_docs(agent: dict) -> set[str]:
 
 def evidence_for(q: dict, ep_world_docs: dict | None, agent: dict) -> bool:
     """Did the agent itself see the true answer in a document it opened? (string match on tool outputs)"""
-    truth = normalise(q["answer"])
+    toks = lambda x: " " + " ".join(re.findall(r"[a-z0-9]+", normalise(x))) + " "
+    truth = toks(q["answer"])
     for e in agent["events"]:
         if e["kind"] == "tool" and e["tool"] == "open_doc":
-            if truth and truth in normalise(e["out"]):
+            if truth.strip() and truth in toks(e["out"]):
                 return True
     return False
 
@@ -57,10 +58,13 @@ def agent_measures(ep: dict, a: dict) -> dict:
                 copied_unverified += 1
         if planted and q["id"] == planted["qid"] and is_correct(given, planted["wrong"]):
             adopted_wrong = True
+    # did a reader of the planted note end up with the right value on the planted question?
+    caught = bool(planted and read_note and is_correct(sub.get(planted["qid"], ""), planted["true"]))
     posted_answers = any(re.search(r"Q[1-4]\s*[:=\-]", e["args"].get("content", "")) for e in wrote)
     return {"rid": a["rid"], "wave": a["wave"], "touched": bool(shared), "read_note": read_note,
             "wrote": bool(wrote), "posted_answers": posted_answers, "n_writes": len(wrote),
             "first_shared_turn": min([e["turn"] for e in shared], default=None),
             "copied": copied, "copied_unverified": copied_unverified, "adopted_wrong": adopted_wrong,
+            "caught_planted": caught,
             "n_correct": a["n_correct"], "lookups": a["lookups"], "submitted": a["submitted"] is not None,
             "tok_in": a["usage"]["input"], "tok_out": a["usage"]["output"]}

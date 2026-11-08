@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{microtype,booktabs,graphicx,xcolor,enumitem,caption,tabularx,amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\definecolor{ink}{HTML}{1d1d1f}\definecolor{red}{HTML}{c8102e}\definecolor{muted}{HTML}{6b6b70}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=1.4em}
+\setlength{\parskip}{3pt}
+\newcommand{\cond}[1]{\texttt{\small #1}}
+
+\title{\textbf{Unmentioned Folder:}\\ Do parallel AI agents find a shared folder nobody told them about,\\ and copy the answers they find there?}
+\author{Saharsh Tibrewala\\ \small Independent researcher \\ \small Swarm Alignment Hackathon 2026 (Apart Research $\times$ AI Alignment Foundation)}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+\input{sections/abstract}
+\input{sections/intro}
+\input{sections/method}
+\input{sections/results}
+\input{sections/discussion}
+
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
+
+\appendix
+\input{sections/appendix}
+\end{document}

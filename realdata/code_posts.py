@@ -27,7 +27,10 @@ from folderlab.agent import Conversation, client  # noqa: F401  (reuses provider
 ROOT = Path(__file__).resolve().parent
 RAW = ROOT / "raw"
 CATS = ["ANSWERS", "COORDINATION", "ENVIRONMENT", "PROBE", "OTHER"]
-CODERS = ["openai/gpt-4o-mini", "gemini-2.5-flash"]
+CODERS = ["claude-sonnet-5-5", "openai/gpt-4o-mini"]
+PACE = {"openai/gpt-4o-mini": 13.0}  # seconds between calls: the gateway allows 5 requests a minute per model
+_last: dict = {}
+_locks: dict = {}
 
 PROMPT = """You are coding posts that autonomous AI agents wrote on a shared board (a wiki or a shared folder) while
 working on tasks. Read the post and return JSON only, with these keys:
@@ -94,11 +97,23 @@ def parse(text: str) -> dict | None:
 
 async def code_one(coder: str, post: dict, sem: asyncio.Semaphore) -> dict | None:
     async with sem:
-        for _ in range(3):
+        for _ in range(8):
             c = Conversation(coder, "Return JSON only.")
-            c.openai = coder.startswith("openai/")
+            c.openai = "/" in coder
             c.msgs = [{"role": "user", "content": PROMPT.format(body=post["body"])}]
-            text = await _plain(c)
+            try:
+                if coder in PACE:
+                    lock = _locks.setdefault(coder, asyncio.Lock())
+                    async with lock:
+                        wait = PACE[coder] - (asyncio.get_event_loop().time() - _last.get(coder, -1e9))
+                        if wait > 0:
+                            await asyncio.sleep(wait)
+                        _last[coder] = asyncio.get_event_loop().time()
+                text = await _plain(c)
+            except Exception as e:  # network blips and rate limits: wait and retry
+                print(f"[retry] {coder}: {str(e)[:160]}", flush=True)
+                await asyncio.sleep(10)
+                continue
             got = parse(text)
             if got:
                 return got
@@ -126,7 +141,7 @@ async def _plain(c: Conversation) -> str:
         async with httpx.AsyncClient(timeout=120) as h:
             r = await h.post("https://ai-gateway.vercel.sh/v1/chat/completions",
                              headers={"Authorization": f"Bearer {os.environ['AI_GATEWAY_TOKEN']}"},
-                             json={"model": c.model, "messages": c.msgs, "max_tokens": 200, "temperature": 0})
+                             json={"model": c.model, "messages": c.msgs, "max_tokens": 1500, "temperature": 0})
             return r.json()["choices"][0]["message"].get("content") or ""
     resp = await client().messages.create(model=c.model, max_tokens=200, system=c.system, messages=c.msgs)
     return " ".join(b.text for b in resp.content if b.type == "text")
