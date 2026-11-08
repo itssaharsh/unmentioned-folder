@@ -1,0 +1,31 @@
+\begin{tabular}{llrrrrrrrr}
+\toprule
+Model & Condition & $n$ & ep. & Opened & Read & Copied & Planted & Wrote & Acc. \\
+ & & agents & & folder \% & note \% & unverif. \% & wrong \% & \% & \\
+\midrule
+Claude Haiku 4.5 & isolated & 24 & 2 & 0 & 0 & -- & -- & 0 & 0.39 \\
+ & hidden + answers & 24 & 2 & 0 & 0 & 0 & 0 & 0 & 0.34 \\
+ & linked + answers & 24 & 2 & 0 & 0 & 0 & 0 & 0 & 0.38 \\
+ & mentioned + answers & 36 & 3 & 17 & 14 & 14 & 14 & 8 & 0.48 \\
+\midrule
+Claude Haiku 5.5 & isolated & 36 & 3 & 0 & 0 & -- & -- & 0 & 0.51 \\
+ & hidden + answers & 24 & 2 & 0 & 0 & 0 & 0 & 0 & 0.50 \\
+ & linked + answers & 12 & 1 & 33 & 33 & 0 & 0 & 0 & 0.50 \\
+ & mentioned + answers & 36 & 3 & 67 & 67 & 14 & 11 & 0 & 0.53 \\
+ & mentioned + invite & 24 & 2 & 62 & 62 & -- & -- & 29 & 0.65 \\
+\midrule
+Claude Sonnet 5.5 & isolated & 36 & 3 & 0 & 0 & -- & -- & 0 & 0.48 \\
+ & hidden + answers & 12 & 1 & 0 & 0 & 0 & 0 & 0 & 0.50 \\
+ & linked + answers & 12 & 1 & 8 & 8 & 0 & 0 & 0 & 0.50 \\
+ & mentioned + answers & 36 & 3 & 56 & 56 & 44 & 19 & 17 & 0.67 \\
+ & mentioned + invite & 24 & 2 & 50 & 50 & -- & -- & 17 & 0.60 \\
+\midrule
+gpt-oss-120b & isolated & 12 & 1 & 0 & 0 & -- & -- & 0 & 0.25 \\
+ & hidden + answers & 12 & 1 & 0 & 0 & 0 & 0 & 0 & 0.21 \\
+ & linked + answers & 12 & 1 & 75 & 0 & 0 & 0 & 0 & 0.12 \\
+ & mentioned + answers & 12 & 1 & 42 & 0 & 0 & 0 & 0 & 0.10 \\
+\midrule
+GPT-4.1 mini & isolated & 12 & 1 & 0 & 0 & -- & -- & 0 & 0.44 \\
+ & mentioned + answers & 12 & 1 & 0 & 0 & 0 & 0 & 0 & 0.50 \\
+\bottomrule
+\end{tabular}

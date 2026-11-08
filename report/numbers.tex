@@ -1,0 +1,686 @@
+\newcommand{\nmodels}{6}
+\newcommand{\nagents}{912}
+\newcommand{\nepisodes}{76}
+\newcommand{\modellist}{Claude Haiku 4.5, Claude Haiku 5.5, Claude Sonnet 5.5, gpt-oss-120b, gpt-oss-20b, GPT-4.1 mini}
+\newcommand{\nHaikuFourIso}{24}
+\newcommand{\OpenHaikuFourIso}{0\%}
+\newcommand{\OpenHaikuFourIsoCI}{[0\%, 0\%]}
+\newcommand{\ReadHaikuFourIso}{0\%}
+\newcommand{\ReadHaikuFourIsoCI}{[0\%, 0\%]}
+\newcommand{\UnverHaikuFourIso}{0\%}
+\newcommand{\UnverHaikuFourIsoCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFourIso}{0\%}
+\newcommand{\WrongHaikuFourIsoCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFourIso}{0\%}
+\newcommand{\WroteHaikuFourIsoCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFourIso}{39\%}
+\newcommand{\AccHaikuFourIsoCI}{[27\%, 50\%]}
+\newcommand{\AccHaikuFourIsoWA}{38\%}
+\newcommand{\AccHaikuFourIsoWB}{38\%}
+\newcommand{\AccHaikuFourIsoWC}{42\%}
+\newcommand{\AccHaikuFourIsoWD}{38\%}
+\newcommand{\nHaikuFourHid}{24}
+\newcommand{\OpenHaikuFourHid}{0\%}
+\newcommand{\OpenHaikuFourHidCI}{[0\%, 0\%]}
+\newcommand{\ReadHaikuFourHid}{0\%}
+\newcommand{\ReadHaikuFourHidCI}{[0\%, 0\%]}
+\newcommand{\UnverHaikuFourHid}{0\%}
+\newcommand{\UnverHaikuFourHidCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFourHid}{0\%}
+\newcommand{\WrongHaikuFourHidCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFourHid}{0\%}
+\newcommand{\WroteHaikuFourHidCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFourHid}{34\%}
+\newcommand{\AccHaikuFourHidCI}{[27\%, 42\%]}
+\newcommand{\AccHaikuFourHidWA}{29\%}
+\newcommand{\AccHaikuFourHidWB}{38\%}
+\newcommand{\AccHaikuFourHidWC}{33\%}
+\newcommand{\AccHaikuFourHidWD}{38\%}
+\newcommand{\nHaikuFourLnk}{24}
+\newcommand{\OpenHaikuFourLnk}{0\%}
+\newcommand{\OpenHaikuFourLnkCI}{[0\%, 0\%]}
+\newcommand{\ReadHaikuFourLnk}{0\%}
+\newcommand{\ReadHaikuFourLnkCI}{[0\%, 0\%]}
+\newcommand{\UnverHaikuFourLnk}{0\%}
+\newcommand{\UnverHaikuFourLnkCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFourLnk}{0\%}
+\newcommand{\WrongHaikuFourLnkCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFourLnk}{0\%}
+\newcommand{\WroteHaikuFourLnkCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFourLnk}{38\%}
+\newcommand{\AccHaikuFourLnkCI}{[27\%, 48\%]}
+\newcommand{\AccHaikuFourLnkWA}{38\%}
+\newcommand{\AccHaikuFourLnkWB}{33\%}
+\newcommand{\AccHaikuFourLnkWC}{38\%}
+\newcommand{\AccHaikuFourLnkWD}{42\%}
+\newcommand{\nHaikuFourMen}{36}
+\newcommand{\OpenHaikuFourMen}{17\%}
+\newcommand{\OpenHaikuFourMenCI}{[0\%, 33\%]}
+\newcommand{\ReadHaikuFourMen}{14\%}
+\newcommand{\ReadHaikuFourMenCI}{[0\%, 25\%]}
+\newcommand{\UnverHaikuFourMen}{14\%}
+\newcommand{\UnverHaikuFourMenCI}{[0\%, 25\%]}
+\newcommand{\WrongHaikuFourMen}{14\%}
+\newcommand{\WrongHaikuFourMenCI}{[0\%, 25\%]}
+\newcommand{\WroteHaikuFourMen}{8\%}
+\newcommand{\WroteHaikuFourMenCI}{[0\%, 25\%]}
+\newcommand{\AccHaikuFourMen}{48\%}
+\newcommand{\AccHaikuFourMenCI}{[35\%, 58\%]}
+\newcommand{\UnverReadHaikuFourMen}{5/5}
+\newcommand{\WrongReadHaikuFourMen}{5/5}
+\newcommand{\AccHaikuFourMenWA}{47\%}
+\newcommand{\AccHaikuFourMenWB}{42\%}
+\newcommand{\AccHaikuFourMenWC}{53\%}
+\newcommand{\AccHaikuFourMenWD}{50\%}
+\newcommand{\nHaikuFourEnc}{48}
+\newcommand{\OpenHaikuFourEnc}{50\%}
+\newcommand{\OpenHaikuFourEncCI}{[29\%, 71\%]}
+\newcommand{\ReadHaikuFourEnc}{50\%}
+\newcommand{\ReadHaikuFourEncCI}{[29\%, 71\%]}
+\newcommand{\UnverHaikuFourEnc}{50\%}
+\newcommand{\UnverHaikuFourEncCI}{[29\%, 71\%]}
+\newcommand{\WrongHaikuFourEnc}{33\%}
+\newcommand{\WrongHaikuFourEncCI}{[10\%, 52\%]}
+\newcommand{\WroteHaikuFourEnc}{27\%}
+\newcommand{\WroteHaikuFourEncCI}{[4\%, 50\%]}
+\newcommand{\AccHaikuFourEnc}{65\%}
+\newcommand{\AccHaikuFourEncCI}{[58\%, 74\%]}
+\newcommand{\UnverReadHaikuFourEnc}{24/24}
+\newcommand{\WrongReadHaikuFourEnc}{16/24}
+\newcommand{\AccHaikuFourEncWA}{56\%}
+\newcommand{\AccHaikuFourEncWB}{67\%}
+\newcommand{\AccHaikuFourEncWC}{65\%}
+\newcommand{\AccHaikuFourEncWD}{71\%}
+\newcommand{\nHaikuFourEncRule}{36}
+\newcommand{\OpenHaikuFourEncRule}{39\%}
+\newcommand{\OpenHaikuFourEncRuleCI}{[33\%, 50\%]}
+\newcommand{\ReadHaikuFourEncRule}{28\%}
+\newcommand{\ReadHaikuFourEncRuleCI}{[25\%, 33\%]}
+\newcommand{\UnverHaikuFourEncRule}{14\%}
+\newcommand{\UnverHaikuFourEncRuleCI}{[8\%, 25\%]}
+\newcommand{\WrongHaikuFourEncRule}{14\%}
+\newcommand{\WrongHaikuFourEncRuleCI}{[8\%, 25\%]}
+\newcommand{\WroteHaikuFourEncRule}{0\%}
+\newcommand{\WroteHaikuFourEncRuleCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFourEncRule}{47\%}
+\newcommand{\AccHaikuFourEncRuleCI}{[33\%, 56\%]}
+\newcommand{\UnverReadHaikuFourEncRule}{5/10}
+\newcommand{\WrongReadHaikuFourEncRule}{5/10}
+\newcommand{\AccHaikuFourEncRuleWA}{50\%}
+\newcommand{\AccHaikuFourEncRuleWB}{44\%}
+\newcommand{\AccHaikuFourEncRuleWC}{44\%}
+\newcommand{\AccHaikuFourEncRuleWD}{50\%}
+\newcommand{\nHaikuFourInv}{24}
+\newcommand{\OpenHaikuFourInv}{54\%}
+\newcommand{\OpenHaikuFourInvCI}{[33\%, 75\%]}
+\newcommand{\ReadHaikuFourInv}{50\%}
+\newcommand{\ReadHaikuFourInvCI}{[25\%, 75\%]}
+\newcommand{\UnverHaikuFourInv}{0\%}
+\newcommand{\UnverHaikuFourInvCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFourInv}{0\%}
+\newcommand{\WrongHaikuFourInvCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFourInv}{21\%}
+\newcommand{\WroteHaikuFourInvCI}{[17\%, 25\%]}
+\newcommand{\AccHaikuFourInv}{42\%}
+\newcommand{\AccHaikuFourInvCI}{[31\%, 52\%]}
+\newcommand{\AccHaikuFourInvWA}{42\%}
+\newcommand{\AccHaikuFourInvWB}{38\%}
+\newcommand{\AccHaikuFourInvWC}{46\%}
+\newcommand{\AccHaikuFourInvWD}{42\%}
+\newcommand{\nHaikuFiveIso}{36}
+\newcommand{\OpenHaikuFiveIso}{0\%}
+\newcommand{\OpenHaikuFiveIsoCI}{[0\%, 0\%]}
+\newcommand{\ReadHaikuFiveIso}{0\%}
+\newcommand{\ReadHaikuFiveIsoCI}{[0\%, 0\%]}
+\newcommand{\UnverHaikuFiveIso}{0\%}
+\newcommand{\UnverHaikuFiveIsoCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveIso}{0\%}
+\newcommand{\WrongHaikuFiveIsoCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveIso}{0\%}
+\newcommand{\WroteHaikuFiveIsoCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveIso}{51\%}
+\newcommand{\AccHaikuFiveIsoCI}{[50\%, 54\%]}
+\newcommand{\AccHaikuFiveIsoWA}{50\%}
+\newcommand{\AccHaikuFiveIsoWB}{53\%}
+\newcommand{\AccHaikuFiveIsoWC}{53\%}
+\newcommand{\AccHaikuFiveIsoWD}{50\%}
+\newcommand{\nHaikuFiveHid}{24}
+\newcommand{\OpenHaikuFiveHid}{0\%}
+\newcommand{\OpenHaikuFiveHidCI}{[0\%, 0\%]}
+\newcommand{\ReadHaikuFiveHid}{0\%}
+\newcommand{\ReadHaikuFiveHidCI}{[0\%, 0\%]}
+\newcommand{\UnverHaikuFiveHid}{0\%}
+\newcommand{\UnverHaikuFiveHidCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveHid}{0\%}
+\newcommand{\WrongHaikuFiveHidCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveHid}{0\%}
+\newcommand{\WroteHaikuFiveHidCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveHid}{50\%}
+\newcommand{\AccHaikuFiveHidCI}{[50\%, 50\%]}
+\newcommand{\AccHaikuFiveHidWA}{50\%}
+\newcommand{\AccHaikuFiveHidWB}{50\%}
+\newcommand{\AccHaikuFiveHidWC}{50\%}
+\newcommand{\AccHaikuFiveHidWD}{50\%}
+\newcommand{\nHaikuFiveLnk}{12}
+\newcommand{\OpenHaikuFiveLnk}{33\%}
+\newcommand{\OpenHaikuFiveLnkCI}{[33\%, 33\%]}
+\newcommand{\ReadHaikuFiveLnk}{33\%}
+\newcommand{\ReadHaikuFiveLnkCI}{[33\%, 33\%]}
+\newcommand{\UnverHaikuFiveLnk}{0\%}
+\newcommand{\UnverHaikuFiveLnkCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveLnk}{0\%}
+\newcommand{\WrongHaikuFiveLnkCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveLnk}{0\%}
+\newcommand{\WroteHaikuFiveLnkCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveLnk}{50\%}
+\newcommand{\AccHaikuFiveLnkCI}{[50\%, 50\%]}
+\newcommand{\UnverReadHaikuFiveLnk}{0/4}
+\newcommand{\WrongReadHaikuFiveLnk}{0/4}
+\newcommand{\AccHaikuFiveLnkWA}{50\%}
+\newcommand{\AccHaikuFiveLnkWB}{50\%}
+\newcommand{\AccHaikuFiveLnkWC}{50\%}
+\newcommand{\AccHaikuFiveLnkWD}{50\%}
+\newcommand{\nHaikuFiveMen}{36}
+\newcommand{\OpenHaikuFiveMen}{67\%}
+\newcommand{\OpenHaikuFiveMenCI}{[50\%, 92\%]}
+\newcommand{\ReadHaikuFiveMen}{67\%}
+\newcommand{\ReadHaikuFiveMenCI}{[50\%, 92\%]}
+\newcommand{\UnverHaikuFiveMen}{14\%}
+\newcommand{\UnverHaikuFiveMenCI}{[0\%, 33\%]}
+\newcommand{\WrongHaikuFiveMen}{11\%}
+\newcommand{\WrongHaikuFiveMenCI}{[0\%, 33\%]}
+\newcommand{\WroteHaikuFiveMen}{0\%}
+\newcommand{\WroteHaikuFiveMenCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveMen}{53\%}
+\newcommand{\AccHaikuFiveMenCI}{[50\%, 58\%]}
+\newcommand{\UnverReadHaikuFiveMen}{5/24}
+\newcommand{\WrongReadHaikuFiveMen}{4/24}
+\newcommand{\AccHaikuFiveMenWA}{50\%}
+\newcommand{\AccHaikuFiveMenWB}{56\%}
+\newcommand{\AccHaikuFiveMenWC}{56\%}
+\newcommand{\AccHaikuFiveMenWD}{53\%}
+\newcommand{\nHaikuFiveEnc}{48}
+\newcommand{\OpenHaikuFiveEnc}{85\%}
+\newcommand{\OpenHaikuFiveEncCI}{[79\%, 92\%]}
+\newcommand{\ReadHaikuFiveEnc}{85\%}
+\newcommand{\ReadHaikuFiveEncCI}{[79\%, 92\%]}
+\newcommand{\UnverHaikuFiveEnc}{17\%}
+\newcommand{\UnverHaikuFiveEncCI}{[4\%, 29\%]}
+\newcommand{\WrongHaikuFiveEnc}{12\%}
+\newcommand{\WrongHaikuFiveEncCI}{[0\%, 25\%]}
+\newcommand{\WroteHaikuFiveEnc}{0\%}
+\newcommand{\WroteHaikuFiveEncCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveEnc}{60\%}
+\newcommand{\AccHaikuFiveEncCI}{[56\%, 67\%]}
+\newcommand{\UnverReadHaikuFiveEnc}{8/41}
+\newcommand{\WrongReadHaikuFiveEnc}{6/41}
+\newcommand{\AccHaikuFiveEncWA}{60\%}
+\newcommand{\AccHaikuFiveEncWB}{60\%}
+\newcommand{\AccHaikuFiveEncWC}{60\%}
+\newcommand{\AccHaikuFiveEncWD}{60\%}
+\newcommand{\nHaikuFiveEncRule}{24}
+\newcommand{\OpenHaikuFiveEncRule}{79\%}
+\newcommand{\OpenHaikuFiveEncRuleCI}{[75\%, 83\%]}
+\newcommand{\ReadHaikuFiveEncRule}{67\%}
+\newcommand{\ReadHaikuFiveEncRuleCI}{[58\%, 75\%]}
+\newcommand{\UnverHaikuFiveEncRule}{0\%}
+\newcommand{\UnverHaikuFiveEncRuleCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveEncRule}{0\%}
+\newcommand{\WrongHaikuFiveEncRuleCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveEncRule}{0\%}
+\newcommand{\WroteHaikuFiveEncRuleCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveEncRule}{49\%}
+\newcommand{\AccHaikuFiveEncRuleCI}{[48\%, 50\%]}
+\newcommand{\UnverReadHaikuFiveEncRule}{0/16}
+\newcommand{\WrongReadHaikuFiveEncRule}{0/16}
+\newcommand{\AccHaikuFiveEncRuleWA}{50\%}
+\newcommand{\AccHaikuFiveEncRuleWB}{50\%}
+\newcommand{\AccHaikuFiveEncRuleWC}{50\%}
+\newcommand{\AccHaikuFiveEncRuleWD}{46\%}
+\newcommand{\nHaikuFiveEmpty}{24}
+\newcommand{\OpenHaikuFiveEmpty}{88\%}
+\newcommand{\OpenHaikuFiveEmptyCI}{[83\%, 92\%]}
+\newcommand{\ReadHaikuFiveEmpty}{0\%}
+\newcommand{\ReadHaikuFiveEmptyCI}{[0\%, 0\%]}
+\newcommand{\UnverHaikuFiveEmpty}{0\%}
+\newcommand{\UnverHaikuFiveEmptyCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveEmpty}{0\%}
+\newcommand{\WrongHaikuFiveEmptyCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveEmpty}{0\%}
+\newcommand{\WroteHaikuFiveEmptyCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveEmpty}{50\%}
+\newcommand{\AccHaikuFiveEmptyCI}{[50\%, 50\%]}
+\newcommand{\AccHaikuFiveEmptyWA}{50\%}
+\newcommand{\AccHaikuFiveEmptyWB}{50\%}
+\newcommand{\AccHaikuFiveEmptyWC}{50\%}
+\newcommand{\AccHaikuFiveEmptyWD}{50\%}
+\newcommand{\nHaikuFiveInv}{48}
+\newcommand{\OpenHaikuFiveInv}{90\%}
+\newcommand{\OpenHaikuFiveInvCI}{[75\%, 100\%]}
+\newcommand{\ReadHaikuFiveInv}{90\%}
+\newcommand{\ReadHaikuFiveInvCI}{[75\%, 100\%]}
+\newcommand{\UnverHaikuFiveInv}{0\%}
+\newcommand{\UnverHaikuFiveInvCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveInv}{0\%}
+\newcommand{\WrongHaikuFiveInvCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveInv}{33\%}
+\newcommand{\WroteHaikuFiveInvCI}{[17\%, 50\%]}
+\newcommand{\AccHaikuFiveInv}{77\%}
+\newcommand{\AccHaikuFiveInvCI}{[70\%, 83\%]}
+\newcommand{\AccHaikuFiveInvWA}{56\%}
+\newcommand{\AccHaikuFiveInvWB}{75\%}
+\newcommand{\AccHaikuFiveInvWC}{88\%}
+\newcommand{\AccHaikuFiveInvWD}{90\%}
+\newcommand{\nHaikuFiveInvRule}{24}
+\newcommand{\OpenHaikuFiveInvRule}{83\%}
+\newcommand{\OpenHaikuFiveInvRuleCI}{[75\%, 92\%]}
+\newcommand{\ReadHaikuFiveInvRule}{83\%}
+\newcommand{\ReadHaikuFiveInvRuleCI}{[75\%, 92\%]}
+\newcommand{\UnverHaikuFiveInvRule}{0\%}
+\newcommand{\UnverHaikuFiveInvRuleCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveInvRule}{0\%}
+\newcommand{\WrongHaikuFiveInvRuleCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveInvRule}{0\%}
+\newcommand{\WroteHaikuFiveInvRuleCI}{[0\%, 0\%]}
+\newcommand{\AccHaikuFiveInvRule}{50\%}
+\newcommand{\AccHaikuFiveInvRuleCI}{[50\%, 50\%]}
+\newcommand{\AccHaikuFiveInvRuleWA}{50\%}
+\newcommand{\AccHaikuFiveInvRuleWB}{50\%}
+\newcommand{\AccHaikuFiveInvRuleWC}{50\%}
+\newcommand{\AccHaikuFiveInvRuleWD}{50\%}
+\newcommand{\nHaikuFiveMenInv}{24}
+\newcommand{\OpenHaikuFiveMenInv}{62\%}
+\newcommand{\OpenHaikuFiveMenInvCI}{[50\%, 75\%]}
+\newcommand{\ReadHaikuFiveMenInv}{62\%}
+\newcommand{\ReadHaikuFiveMenInvCI}{[50\%, 75\%]}
+\newcommand{\UnverHaikuFiveMenInv}{0\%}
+\newcommand{\UnverHaikuFiveMenInvCI}{[0\%, 0\%]}
+\newcommand{\WrongHaikuFiveMenInv}{0\%}
+\newcommand{\WrongHaikuFiveMenInvCI}{[0\%, 0\%]}
+\newcommand{\WroteHaikuFiveMenInv}{29\%}
+\newcommand{\WroteHaikuFiveMenInvCI}{[25\%, 33\%]}
+\newcommand{\AccHaikuFiveMenInv}{65\%}
+\newcommand{\AccHaikuFiveMenInvCI}{[56\%, 73\%]}
+\newcommand{\AccHaikuFiveMenInvWA}{50\%}
+\newcommand{\AccHaikuFiveMenInvWB}{62\%}
+\newcommand{\AccHaikuFiveMenInvWC}{83\%}
+\newcommand{\AccHaikuFiveMenInvWD}{62\%}
+\newcommand{\nSonnetIso}{36}
+\newcommand{\OpenSonnetIso}{0\%}
+\newcommand{\OpenSonnetIsoCI}{[0\%, 0\%]}
+\newcommand{\ReadSonnetIso}{0\%}
+\newcommand{\ReadSonnetIsoCI}{[0\%, 0\%]}
+\newcommand{\UnverSonnetIso}{0\%}
+\newcommand{\UnverSonnetIsoCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetIso}{0\%}
+\newcommand{\WrongSonnetIsoCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetIso}{0\%}
+\newcommand{\WroteSonnetIsoCI}{[0\%, 0\%]}
+\newcommand{\AccSonnetIso}{48\%}
+\newcommand{\AccSonnetIsoCI}{[46\%, 50\%]}
+\newcommand{\AccSonnetIsoWA}{50\%}
+\newcommand{\AccSonnetIsoWB}{47\%}
+\newcommand{\AccSonnetIsoWC}{44\%}
+\newcommand{\AccSonnetIsoWD}{50\%}
+\newcommand{\nSonnetHid}{12}
+\newcommand{\OpenSonnetHid}{0\%}
+\newcommand{\OpenSonnetHidCI}{[0\%, 0\%]}
+\newcommand{\ReadSonnetHid}{0\%}
+\newcommand{\ReadSonnetHidCI}{[0\%, 0\%]}
+\newcommand{\UnverSonnetHid}{0\%}
+\newcommand{\UnverSonnetHidCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetHid}{0\%}
+\newcommand{\WrongSonnetHidCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetHid}{0\%}
+\newcommand{\WroteSonnetHidCI}{[0\%, 0\%]}
+\newcommand{\AccSonnetHid}{50\%}
+\newcommand{\AccSonnetHidCI}{[50\%, 50\%]}
+\newcommand{\AccSonnetHidWA}{50\%}
+\newcommand{\AccSonnetHidWB}{50\%}
+\newcommand{\AccSonnetHidWC}{50\%}
+\newcommand{\AccSonnetHidWD}{50\%}
+\newcommand{\nSonnetLnk}{12}
+\newcommand{\OpenSonnetLnk}{8\%}
+\newcommand{\OpenSonnetLnkCI}{[8\%, 8\%]}
+\newcommand{\ReadSonnetLnk}{8\%}
+\newcommand{\ReadSonnetLnkCI}{[8\%, 8\%]}
+\newcommand{\UnverSonnetLnk}{0\%}
+\newcommand{\UnverSonnetLnkCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetLnk}{0\%}
+\newcommand{\WrongSonnetLnkCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetLnk}{0\%}
+\newcommand{\WroteSonnetLnkCI}{[0\%, 0\%]}
+\newcommand{\AccSonnetLnk}{50\%}
+\newcommand{\AccSonnetLnkCI}{[50\%, 50\%]}
+\newcommand{\UnverReadSonnetLnk}{0/1}
+\newcommand{\WrongReadSonnetLnk}{0/1}
+\newcommand{\AccSonnetLnkWA}{50\%}
+\newcommand{\AccSonnetLnkWB}{50\%}
+\newcommand{\AccSonnetLnkWC}{50\%}
+\newcommand{\AccSonnetLnkWD}{50\%}
+\newcommand{\nSonnetMen}{36}
+\newcommand{\OpenSonnetMen}{56\%}
+\newcommand{\OpenSonnetMenCI}{[33\%, 92\%]}
+\newcommand{\ReadSonnetMen}{56\%}
+\newcommand{\ReadSonnetMenCI}{[33\%, 92\%]}
+\newcommand{\UnverSonnetMen}{44\%}
+\newcommand{\UnverSonnetMenCI}{[25\%, 75\%]}
+\newcommand{\WrongSonnetMen}{19\%}
+\newcommand{\WrongSonnetMenCI}{[0\%, 33\%]}
+\newcommand{\WroteSonnetMen}{17\%}
+\newcommand{\WroteSonnetMenCI}{[8\%, 25\%]}
+\newcommand{\AccSonnetMen}{67\%}
+\newcommand{\AccSonnetMenCI}{[56\%, 88\%]}
+\newcommand{\UnverReadSonnetMen}{16/20}
+\newcommand{\WrongReadSonnetMen}{7/20}
+\newcommand{\AccSonnetMenWA}{64\%}
+\newcommand{\AccSonnetMenWB}{69\%}
+\newcommand{\AccSonnetMenWC}{69\%}
+\newcommand{\AccSonnetMenWD}{67\%}
+\newcommand{\nSonnetEnc}{48}
+\newcommand{\OpenSonnetEnc}{88\%}
+\newcommand{\OpenSonnetEncCI}{[69\%, 100\%]}
+\newcommand{\ReadSonnetEnc}{88\%}
+\newcommand{\ReadSonnetEncCI}{[69\%, 100\%]}
+\newcommand{\UnverSonnetEnc}{85\%}
+\newcommand{\UnverSonnetEncCI}{[67\%, 98\%]}
+\newcommand{\WrongSonnetEnc}{21\%}
+\newcommand{\WrongSonnetEncCI}{[0\%, 42\%]}
+\newcommand{\WroteSonnetEnc}{35\%}
+\newcommand{\WroteSonnetEncCI}{[0\%, 71\%]}
+\newcommand{\AccSonnetEnc}{90\%}
+\newcommand{\AccSonnetEncCI}{[86\%, 94\%]}
+\newcommand{\UnverReadSonnetEnc}{41/42}
+\newcommand{\WrongReadSonnetEnc}{10/42}
+\newcommand{\AccSonnetEncWA}{85\%}
+\newcommand{\AccSonnetEncWB}{79\%}
+\newcommand{\AccSonnetEncWC}{96\%}
+\newcommand{\AccSonnetEncWD}{98\%}
+\newcommand{\nSonnetEncRule}{24}
+\newcommand{\OpenSonnetEncRule}{12\%}
+\newcommand{\OpenSonnetEncRuleCI}{[8\%, 17\%]}
+\newcommand{\ReadSonnetEncRule}{4\%}
+\newcommand{\ReadSonnetEncRuleCI}{[0\%, 8\%]}
+\newcommand{\UnverSonnetEncRule}{0\%}
+\newcommand{\UnverSonnetEncRuleCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetEncRule}{0\%}
+\newcommand{\WrongSonnetEncRuleCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetEncRule}{0\%}
+\newcommand{\WroteSonnetEncRuleCI}{[0\%, 0\%]}
+\newcommand{\AccSonnetEncRule}{50\%}
+\newcommand{\AccSonnetEncRuleCI}{[50\%, 50\%]}
+\newcommand{\UnverReadSonnetEncRule}{0/1}
+\newcommand{\WrongReadSonnetEncRule}{0/1}
+\newcommand{\AccSonnetEncRuleWA}{50\%}
+\newcommand{\AccSonnetEncRuleWB}{50\%}
+\newcommand{\AccSonnetEncRuleWC}{50\%}
+\newcommand{\AccSonnetEncRuleWD}{50\%}
+\newcommand{\nSonnetEmpty}{24}
+\newcommand{\OpenSonnetEmpty}{96\%}
+\newcommand{\OpenSonnetEmptyCI}{[92\%, 100\%]}
+\newcommand{\ReadSonnetEmpty}{0\%}
+\newcommand{\ReadSonnetEmptyCI}{[0\%, 0\%]}
+\newcommand{\UnverSonnetEmpty}{0\%}
+\newcommand{\UnverSonnetEmptyCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetEmpty}{0\%}
+\newcommand{\WrongSonnetEmptyCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetEmpty}{0\%}
+\newcommand{\WroteSonnetEmptyCI}{[0\%, 0\%]}
+\newcommand{\AccSonnetEmpty}{50\%}
+\newcommand{\AccSonnetEmptyCI}{[50\%, 50\%]}
+\newcommand{\AccSonnetEmptyWA}{50\%}
+\newcommand{\AccSonnetEmptyWB}{50\%}
+\newcommand{\AccSonnetEmptyWC}{50\%}
+\newcommand{\AccSonnetEmptyWD}{50\%}
+\newcommand{\nSonnetInv}{48}
+\newcommand{\OpenSonnetInv}{92\%}
+\newcommand{\OpenSonnetInvCI}{[75\%, 100\%]}
+\newcommand{\ReadSonnetInv}{92\%}
+\newcommand{\ReadSonnetInvCI}{[75\%, 100\%]}
+\newcommand{\UnverSonnetInv}{0\%}
+\newcommand{\UnverSonnetInvCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetInv}{0\%}
+\newcommand{\WrongSonnetInvCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetInv}{29\%}
+\newcommand{\WroteSonnetInvCI}{[19\%, 44\%]}
+\newcommand{\AccSonnetInv}{82\%}
+\newcommand{\AccSonnetInvCI}{[78\%, 86\%]}
+\newcommand{\AccSonnetInvWA}{56\%}
+\newcommand{\AccSonnetInvWB}{81\%}
+\newcommand{\AccSonnetInvWC}{94\%}
+\newcommand{\AccSonnetInvWD}{96\%}
+\newcommand{\nSonnetInvRule}{24}
+\newcommand{\OpenSonnetInvRule}{4\%}
+\newcommand{\OpenSonnetInvRuleCI}{[0\%, 8\%]}
+\newcommand{\ReadSonnetInvRule}{0\%}
+\newcommand{\ReadSonnetInvRuleCI}{[0\%, 0\%]}
+\newcommand{\UnverSonnetInvRule}{0\%}
+\newcommand{\UnverSonnetInvRuleCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetInvRule}{0\%}
+\newcommand{\WrongSonnetInvRuleCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetInvRule}{0\%}
+\newcommand{\WroteSonnetInvRuleCI}{[0\%, 0\%]}
+\newcommand{\AccSonnetInvRule}{49\%}
+\newcommand{\AccSonnetInvRuleCI}{[48\%, 50\%]}
+\newcommand{\AccSonnetInvRuleWA}{46\%}
+\newcommand{\AccSonnetInvRuleWB}{50\%}
+\newcommand{\AccSonnetInvRuleWC}{50\%}
+\newcommand{\AccSonnetInvRuleWD}{50\%}
+\newcommand{\nSonnetMenInv}{24}
+\newcommand{\OpenSonnetMenInv}{50\%}
+\newcommand{\OpenSonnetMenInvCI}{[17\%, 83\%]}
+\newcommand{\ReadSonnetMenInv}{50\%}
+\newcommand{\ReadSonnetMenInvCI}{[17\%, 83\%]}
+\newcommand{\UnverSonnetMenInv}{0\%}
+\newcommand{\UnverSonnetMenInvCI}{[0\%, 0\%]}
+\newcommand{\WrongSonnetMenInv}{0\%}
+\newcommand{\WrongSonnetMenInvCI}{[0\%, 0\%]}
+\newcommand{\WroteSonnetMenInv}{17\%}
+\newcommand{\WroteSonnetMenInvCI}{[8\%, 25\%]}
+\newcommand{\AccSonnetMenInv}{60\%}
+\newcommand{\AccSonnetMenInvCI}{[52\%, 69\%]}
+\newcommand{\AccSonnetMenInvWA}{54\%}
+\newcommand{\AccSonnetMenInvWB}{62\%}
+\newcommand{\AccSonnetMenInvWC}{62\%}
+\newcommand{\AccSonnetMenInvWD}{62\%}
+\newcommand{\nOssBigIso}{12}
+\newcommand{\OpenOssBigIso}{0\%}
+\newcommand{\OpenOssBigIsoCI}{[0\%, 0\%]}
+\newcommand{\ReadOssBigIso}{0\%}
+\newcommand{\ReadOssBigIsoCI}{[0\%, 0\%]}
+\newcommand{\UnverOssBigIso}{0\%}
+\newcommand{\UnverOssBigIsoCI}{[0\%, 0\%]}
+\newcommand{\WrongOssBigIso}{0\%}
+\newcommand{\WrongOssBigIsoCI}{[0\%, 0\%]}
+\newcommand{\WroteOssBigIso}{0\%}
+\newcommand{\WroteOssBigIsoCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigIso}{25\%}
+\newcommand{\AccOssBigIsoCI}{[25\%, 25\%]}
+\newcommand{\AccOssBigIsoWA}{33\%}
+\newcommand{\AccOssBigIsoWB}{17\%}
+\newcommand{\AccOssBigIsoWC}{17\%}
+\newcommand{\AccOssBigIsoWD}{33\%}
+\newcommand{\nOssBigHid}{12}
+\newcommand{\OpenOssBigHid}{0\%}
+\newcommand{\OpenOssBigHidCI}{[0\%, 0\%]}
+\newcommand{\ReadOssBigHid}{0\%}
+\newcommand{\ReadOssBigHidCI}{[0\%, 0\%]}
+\newcommand{\UnverOssBigHid}{0\%}
+\newcommand{\UnverOssBigHidCI}{[0\%, 0\%]}
+\newcommand{\WrongOssBigHid}{0\%}
+\newcommand{\WrongOssBigHidCI}{[0\%, 0\%]}
+\newcommand{\WroteOssBigHid}{0\%}
+\newcommand{\WroteOssBigHidCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigHid}{21\%}
+\newcommand{\AccOssBigHidCI}{[21\%, 21\%]}
+\newcommand{\AccOssBigHidWA}{17\%}
+\newcommand{\AccOssBigHidWB}{8\%}
+\newcommand{\AccOssBigHidWC}{33\%}
+\newcommand{\AccOssBigHidWD}{25\%}
+\newcommand{\nOssBigLnk}{12}
+\newcommand{\OpenOssBigLnk}{75\%}
+\newcommand{\OpenOssBigLnkCI}{[75\%, 75\%]}
+\newcommand{\ReadOssBigLnk}{0\%}
+\newcommand{\ReadOssBigLnkCI}{[0\%, 0\%]}
+\newcommand{\UnverOssBigLnk}{0\%}
+\newcommand{\UnverOssBigLnkCI}{[0\%, 0\%]}
+\newcommand{\WrongOssBigLnk}{0\%}
+\newcommand{\WrongOssBigLnkCI}{[0\%, 0\%]}
+\newcommand{\WroteOssBigLnk}{0\%}
+\newcommand{\WroteOssBigLnkCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigLnk}{12\%}
+\newcommand{\AccOssBigLnkCI}{[12\%, 12\%]}
+\newcommand{\AccOssBigLnkWA}{0\%}
+\newcommand{\AccOssBigLnkWB}{25\%}
+\newcommand{\AccOssBigLnkWC}{25\%}
+\newcommand{\AccOssBigLnkWD}{0\%}
+\newcommand{\nOssBigMen}{12}
+\newcommand{\OpenOssBigMen}{42\%}
+\newcommand{\OpenOssBigMenCI}{[42\%, 42\%]}
+\newcommand{\ReadOssBigMen}{0\%}
+\newcommand{\ReadOssBigMenCI}{[0\%, 0\%]}
+\newcommand{\UnverOssBigMen}{0\%}
+\newcommand{\UnverOssBigMenCI}{[0\%, 0\%]}
+\newcommand{\WrongOssBigMen}{0\%}
+\newcommand{\WrongOssBigMenCI}{[0\%, 0\%]}
+\newcommand{\WroteOssBigMen}{0\%}
+\newcommand{\WroteOssBigMenCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigMen}{10\%}
+\newcommand{\AccOssBigMenCI}{[10\%, 10\%]}
+\newcommand{\AccOssBigMenWA}{0\%}
+\newcommand{\AccOssBigMenWB}{8\%}
+\newcommand{\AccOssBigMenWC}{17\%}
+\newcommand{\AccOssBigMenWD}{17\%}
+\newcommand{\nOssBigEnc}{12}
+\newcommand{\OpenOssBigEnc}{67\%}
+\newcommand{\OpenOssBigEncCI}{[67\%, 67\%]}
+\newcommand{\ReadOssBigEnc}{8\%}
+\newcommand{\ReadOssBigEncCI}{[8\%, 8\%]}
+\newcommand{\UnverOssBigEnc}{8\%}
+\newcommand{\UnverOssBigEncCI}{[8\%, 8\%]}
+\newcommand{\WrongOssBigEnc}{8\%}
+\newcommand{\WrongOssBigEncCI}{[8\%, 8\%]}
+\newcommand{\WroteOssBigEnc}{0\%}
+\newcommand{\WroteOssBigEncCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigEnc}{19\%}
+\newcommand{\AccOssBigEncCI}{[19\%, 19\%]}
+\newcommand{\UnverReadOssBigEnc}{1/1}
+\newcommand{\WrongReadOssBigEnc}{1/1}
+\newcommand{\AccOssBigEncWA}{0\%}
+\newcommand{\AccOssBigEncWB}{0\%}
+\newcommand{\AccOssBigEncWC}{42\%}
+\newcommand{\AccOssBigEncWD}{33\%}
+\newcommand{\nOssBigEncRule}{12}
+\newcommand{\OpenOssBigEncRule}{58\%}
+\newcommand{\OpenOssBigEncRuleCI}{[58\%, 58\%]}
+\newcommand{\ReadOssBigEncRule}{8\%}
+\newcommand{\ReadOssBigEncRuleCI}{[8\%, 8\%]}
+\newcommand{\UnverOssBigEncRule}{8\%}
+\newcommand{\UnverOssBigEncRuleCI}{[8\%, 8\%]}
+\newcommand{\WrongOssBigEncRule}{8\%}
+\newcommand{\WrongOssBigEncRuleCI}{[8\%, 8\%]}
+\newcommand{\WroteOssBigEncRule}{0\%}
+\newcommand{\WroteOssBigEncRuleCI}{[0\%, 0\%]}
+\newcommand{\AccOssBigEncRule}{19\%}
+\newcommand{\AccOssBigEncRuleCI}{[19\%, 19\%]}
+\newcommand{\UnverReadOssBigEncRule}{1/1}
+\newcommand{\WrongReadOssBigEncRule}{1/1}
+\newcommand{\AccOssBigEncRuleWA}{8\%}
+\newcommand{\AccOssBigEncRuleWB}{33\%}
+\newcommand{\AccOssBigEncRuleWC}{33\%}
+\newcommand{\AccOssBigEncRuleWD}{0\%}
+\newcommand{\nOssSmallEnc}{12}
+\newcommand{\OpenOssSmallEnc}{25\%}
+\newcommand{\OpenOssSmallEncCI}{[25\%, 25\%]}
+\newcommand{\ReadOssSmallEnc}{8\%}
+\newcommand{\ReadOssSmallEncCI}{[8\%, 8\%]}
+\newcommand{\UnverOssSmallEnc}{8\%}
+\newcommand{\UnverOssSmallEncCI}{[8\%, 8\%]}
+\newcommand{\WrongOssSmallEnc}{0\%}
+\newcommand{\WrongOssSmallEncCI}{[0\%, 0\%]}
+\newcommand{\WroteOssSmallEnc}{0\%}
+\newcommand{\WroteOssSmallEncCI}{[0\%, 0\%]}
+\newcommand{\AccOssSmallEnc}{56\%}
+\newcommand{\AccOssSmallEncCI}{[56\%, 56\%]}
+\newcommand{\UnverReadOssSmallEnc}{1/1}
+\newcommand{\WrongReadOssSmallEnc}{0/1}
+\newcommand{\AccOssSmallEncWA}{50\%}
+\newcommand{\AccOssSmallEncWB}{67\%}
+\newcommand{\AccOssSmallEncWC}{58\%}
+\newcommand{\AccOssSmallEncWD}{50\%}
+\newcommand{\nFourOneMiniIso}{12}
+\newcommand{\OpenFourOneMiniIso}{0\%}
+\newcommand{\OpenFourOneMiniIsoCI}{[0\%, 0\%]}
+\newcommand{\ReadFourOneMiniIso}{0\%}
+\newcommand{\ReadFourOneMiniIsoCI}{[0\%, 0\%]}
+\newcommand{\UnverFourOneMiniIso}{0\%}
+\newcommand{\UnverFourOneMiniIsoCI}{[0\%, 0\%]}
+\newcommand{\WrongFourOneMiniIso}{0\%}
+\newcommand{\WrongFourOneMiniIsoCI}{[0\%, 0\%]}
+\newcommand{\WroteFourOneMiniIso}{0\%}
+\newcommand{\WroteFourOneMiniIsoCI}{[0\%, 0\%]}
+\newcommand{\AccFourOneMiniIso}{44\%}
+\newcommand{\AccFourOneMiniIsoCI}{[44\%, 44\%]}
+\newcommand{\AccFourOneMiniIsoWA}{25\%}
+\newcommand{\AccFourOneMiniIsoWB}{50\%}
+\newcommand{\AccFourOneMiniIsoWC}{50\%}
+\newcommand{\AccFourOneMiniIsoWD}{50\%}
+\newcommand{\nFourOneMiniMen}{12}
+\newcommand{\OpenFourOneMiniMen}{0\%}
+\newcommand{\OpenFourOneMiniMenCI}{[0\%, 0\%]}
+\newcommand{\ReadFourOneMiniMen}{0\%}
+\newcommand{\ReadFourOneMiniMenCI}{[0\%, 0\%]}
+\newcommand{\UnverFourOneMiniMen}{0\%}
+\newcommand{\UnverFourOneMiniMenCI}{[0\%, 0\%]}
+\newcommand{\WrongFourOneMiniMen}{0\%}
+\newcommand{\WrongFourOneMiniMenCI}{[0\%, 0\%]}
+\newcommand{\WroteFourOneMiniMen}{0\%}
+\newcommand{\WroteFourOneMiniMenCI}{[0\%, 0\%]}
+\newcommand{\AccFourOneMiniMen}{50\%}
+\newcommand{\AccFourOneMiniMenCI}{[50\%, 50\%]}
+\newcommand{\AccFourOneMiniMenWA}{50\%}
+\newcommand{\AccFourOneMiniMenWB}{50\%}
+\newcommand{\AccFourOneMiniMenWC}{50\%}
+\newcommand{\AccFourOneMiniMenWD}{50\%}
+\newcommand{\hiddenOpened}{0}
+\newcommand{\hiddenN}{72}
+\newcommand{\hiddenModels}{4}
+\newcommand{\emptyWrote}{0}
+\newcommand{\emptyN}{48}
+\newcommand{\AdoptCostlyHaikuFour}{20/23}
+\newcommand{\AdoptPctCostlyHaikuFour}{87\%}
+\newcommand{\CaughtCostlyHaikuFour}{0/23}
+\newcommand{\AdoptCheapHaikuFour}{6/16}
+\newcommand{\AdoptPctCheapHaikuFour}{38\%}
+\newcommand{\CaughtCheapHaikuFour}{10/16}
+\newcommand{\AdoptCostlyHaikuFive}{10/42}
+\newcommand{\AdoptPctCostlyHaikuFive}{24\%}
+\newcommand{\CaughtCostlyHaikuFive}{1/42}
+\newcommand{\AdoptCheapHaikuFive}{0/43}
+\newcommand{\AdoptPctCheapHaikuFive}{0\%}
+\newcommand{\CaughtCheapHaikuFive}{34/43}
+\newcommand{\AdoptCostlySonnet}{17/32}
+\newcommand{\AdoptPctCostlySonnet}{53\%}
+\newcommand{\CaughtCostlySonnet}{12/32}
+\newcommand{\AdoptCheapSonnet}{0/32}
+\newcommand{\AdoptPctCheapSonnet}{0\%}
+\newcommand{\CaughtCheapSonnet}{32/32}
+\newcommand{\AdoptCheapOssBig}{2/2}
+\newcommand{\AdoptPctCheapOssBig}{100\%}
+\newcommand{\CaughtCheapOssBig}{0/2}
+\newcommand{\AdoptCheapOssSmall}{0/1}
+\newcommand{\AdoptPctCheapOssSmall}{0\%}
+\newcommand{\CaughtCheapOssSmall}{1/1}
+\newcommand{\AdoptCostlyAll}{47/97}
+\newcommand{\AdoptPctCostlyAll}{48\%}
+\newcommand{\CaughtCostlyAll}{13/97}
+\newcommand{\AdoptCheapAll}{8/94}
+\newcommand{\AdoptPctCheapAll}{9\%}
+\newcommand{\CaughtCheapAll}{77/94}
+\newcommand{\realRevisions}{14,591}
+\newcommand{\realLabels}{3,103}
+\newcommand{\realPages}{4,579}
+\newcommand{\realcross}{90\%}
+\newcommand{\realAnswerRevs}{3,334}
+\newcommand{\realverify}{87\%}
+\newcommand{\realInvite}{2,857}

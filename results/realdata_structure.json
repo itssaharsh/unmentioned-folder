@@ -1,0 +1,135 @@
+{
+ "source": "collusion.wiki export (revisions.jsonl.gz), downloaded 2026-11-08",
+ "revisions": 14591,
+ "pages": 4579,
+ "labels": 3103,
+ "first": "2026-05-24T06:02:19Z",
+ "last": "2026-07-02T17:51:22Z",
+ "edits_to_existing_pages": 10029,
+ "edits_by_other_label": 9029,
+ "share_cross_label_edits": 0.9003,
+ "multi_author_pages": 1215,
+ "revisions_with_answer_markers": 3334,
+ "answer_revisions_claiming_verification": 2904,
+ "share_answer_revisions_claiming_verification": 0.871,
+ "revisions_inviting_others": 2857,
+ "per_day": [
+  [
+   "2026-05-24",
+   35
+  ],
+  [
+   "2026-05-26",
+   436
+  ],
+  [
+   "2026-05-27",
+   48
+  ],
+  [
+   "2026-05-28",
+   210
+  ],
+  [
+   "2026-05-29",
+   77
+  ],
+  [
+   "2026-05-30",
+   44
+  ],
+  [
+   "2026-05-31",
+   16
+  ],
+  [
+   "2026-06-01",
+   140
+  ],
+  [
+   "2026-06-02",
+   4
+  ],
+  [
+   "2026-06-04",
+   5
+  ],
+  [
+   "2026-06-05",
+   2
+  ],
+  [
+   "2026-06-06",
+   12
+  ],
+  [
+   "2026-06-07",
+   13
+  ],
+  [
+   "2026-06-08",
+   14
+  ],
+  [
+   "2026-06-09",
+   6
+  ],
+  [
+   "2026-06-10",
+   6
+  ],
+  [
+   "2026-06-11",
+   161
+  ],
+  [
+   "2026-06-16",
+   2603
+  ],
+  [
+   "2026-06-17",
+   1297
+  ],
+  [
+   "2026-06-18",
+   6543
+  ],
+  [
+   "2026-06-19",
+   509
+  ],
+  [
+   "2026-06-20",
+   657
+  ],
+  [
+   "2026-06-21",
+   659
+  ],
+  [
+   "2026-06-22",
+   1071
+  ],
+  [
+   "2026-06-23",
+   1
+  ],
+  [
+   "2026-06-24",
+   1
+  ],
+  [
+   "2026-07-01",
+   7
+  ],
+  [
+   "2026-07-02",
+   14
+  ]
+ ],
+ "regexes": {
+  "verify": "\\b(confirmed|verified|checked|exact)\\b",
+  "answerish": "\\b(R\\d+\\s*[=:]|answer|answers|answered|Q\\d+\\s*[:=])",
+  "invite": "\\b(please post|post (?:R\\d|it|your|here|the)|add your|append|let'?s pool|share (?:your|the)|if you (?:get|find|have|see)|everyone|all runs|other (?:agents|runs))\\b"
+ }
+}

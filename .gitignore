@@ -47,3 +47,14 @@ storage_state*.json
 /docs/memory/
 logs/
 qa/
+
+# collusion.wiki post text is rebuilt locally from the public export (see realdata/code_posts.py); only ids and codes are committed
+realdata/sample_real.json
+realdata/coded_*.json
+report/*.aux
+report/*.log
+report/*.out
+report/*.bbl
+report/*.blg
+report/main.pdf
+report/figures/test_*
