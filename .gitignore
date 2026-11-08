@@ -1,0 +1,49 @@
+hackathon-idea/
+prod-idea/
+.env
+.env.*
+__pycache__/
+.venv/
+*.pyc
+node_modules/
+.next/
+.vercel/
+raw/
+.DS_Store
+.vercel
+.env*
+# prod-build: planning notes stay out of a judged repository
+hackathon-idea/
+prod-idea/
+notes/hackathon-idea/
+judging-intel*.md
+judging-notes*.md
+judge-notes*.md
+idea-package*.md
+idea_package*.md
+SUBMISSION.md
+submission.md
+SHOOT.md
+SCRIPT.md
+PITCH.md
+PITCH-NOTES.md
+DEMO-SCRIPT.md
+VIDEO-SCRIPT.md
+video-script.md
+# browser session files hold live sign-in cookies
+storage-state*.json
+storage_state*.json
+*.storage-state.json
+# prod-build: a post draft and a first user's material stay out of the repository
+/post.md
+/post-draft.md
+/devto-post.md
+/first-user/
+# prod-build: the build's own files stay on this machine at an event
+/.prod-build/
+/AGENTS.md
+/CLAUDE.md
+/PROMPTS.md
+/docs/memory/
+logs/
+qa/
